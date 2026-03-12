@@ -50,6 +50,27 @@ When you work outside the repo flow — no `setup.sh` run, no `CLAUDE.md` in the
 
 This skill is the fallback. It's bundled inside Claude Code itself, so when Claude detects there's no design system in your project, it automatically loads a matching theme from the skill and applies the same consistent rules. Same quality output, no setup required.
 
+## Add to any project
+
+If you want this skill available in a project that doesn't use the `setup.sh` flow, do this once:
+
+```bash
+# 1. Clone the skill repo somewhere permanent on your machine
+git clone https://github.com/4rt3miy/ui-design-skill.git ~/skills/ui-design-skill
+
+# 2. Launch Claude Code with the skill loaded
+claude --plugin-dir ~/skills/ui-design-skill
+```
+
+That's it. The skill is now active for that session in whatever project you're working on — no `CLAUDE.md`, no setup, no config. Claude will automatically apply the design system whenever you ask it to build UI.
+
+**Tip:** Add an alias to your shell config so you never have to type the flag:
+```bash
+alias claude='claude --plugin-dir ~/skills/ui-design-skill'
+```
+
+---
+
 ## How Claude picks a theme
 
 Claude reads your prompt and picks the closest match:
