@@ -74,6 +74,31 @@ After that, just type `claude` as normal.
 
 ---
 
-### If you have a project from [4rt3miy/design-system](https://github.com/4rt3miy/design-system)
+### Starting from a design-system template
 
-Run `setup.sh` from the root of your project, then open Claude Code and start prompting. Everything is configured automatically.
+[4rt3miy/design-system](https://github.com/4rt3miy/design-system) gives you a Next.js project with a theme pre-configured. Three steps:
+
+**1. Create a Next.js project**
+```bash
+npx create-next-app@latest my-project --typescript --tailwind --eslint --app --src-dir --import-alias "@/*"
+cd my-project
+```
+
+**2. Run the setup for your chosen theme**
+```bash
+# Analytical — dashboards, data tools, admin panels
+curl -s https://raw.githubusercontent.com/4rt3miy/design-system/main/themes/analytical/setup.sh | bash
+
+# Conversational — AI assistants, docs, knowledge bases
+curl -s https://raw.githubusercontent.com/4rt3miy/design-system/main/themes/conversational/setup.sh | bash
+
+# Vital — health, wellness, consumer apps
+curl -s https://raw.githubusercontent.com/4rt3miy/design-system/main/themes/vital/setup.sh | bash
+```
+
+**3. Open Claude Code and start prompting**
+```bash
+claude
+```
+
+The design system is already configured — Claude reads it automatically.
