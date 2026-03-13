@@ -133,6 +133,7 @@ This theme uses generous radius throughout — softness is intentional.
 ## Don'ts
 
 - Never introduce a second typeface
+- Never substitute Quicksand for another typeface
 - Never use raw hex or HSL values in components
 - Never use sharp corners — this theme is soft
 - Never use arbitrary Tailwind spacing values

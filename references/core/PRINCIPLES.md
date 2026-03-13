@@ -98,3 +98,4 @@ Never use `p-5`, `p-7`, `p-9`, or arbitrary values like `p-[22px]`.
 - Never use raw HTML form elements instead of shadcn
 - Never use `ease-in-out` or `linear` transitions
 - Never use inline styles
+- Never substitute the theme typeface — use exactly what `DESIGN.md` specifies, regardless of use case
