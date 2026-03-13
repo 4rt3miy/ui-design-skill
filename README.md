@@ -85,14 +85,19 @@ cd my-project
 ```
 
 **2. Run the setup for your chosen theme**
+
+Analytical — dashboards, data tools, admin panels:
 ```bash
-# Analytical — dashboards, data tools, admin panels
 curl -s https://raw.githubusercontent.com/4rt3miy/design-system/main/themes/analytical/setup.sh | bash
+```
 
-# Conversational — AI assistants, docs, knowledge bases
+Conversational — AI assistants, docs, knowledge bases:
+```bash
 curl -s https://raw.githubusercontent.com/4rt3miy/design-system/main/themes/conversational/setup.sh | bash
+```
 
-# Vital — health, wellness, consumer apps
+Vital — health, wellness, consumer apps:
+```bash
 curl -s https://raw.githubusercontent.com/4rt3miy/design-system/main/themes/vital/setup.sh | bash
 ```
 
