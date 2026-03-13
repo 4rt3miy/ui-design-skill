@@ -74,9 +74,9 @@ After that, just type `claude` as normal.
 
 ---
 
-### Starting from a design-system template
+### Starting from a template (recommended)
 
-[4rt3miy/design-system](https://github.com/4rt3miy/design-system) gives you a Next.js project with a theme pre-configured. Three steps:
+Create a Next.js project and run one setup command. Everything is configured automatically — shadcn, the right font, color tokens, and the design files Claude needs.
 
 **1. Create a Next.js project**
 ```bash
@@ -85,15 +85,20 @@ cd my-project
 ```
 
 **2. Run the setup for your chosen theme**
+
+Analytical — dashboards, data tools, admin panels:
 ```bash
-# Analytical — dashboards, data tools, admin panels
-curl -s https://raw.githubusercontent.com/4rt3miy/design-system/main/themes/analytical/setup.sh | bash
+curl -s https://raw.githubusercontent.com/4rt3miy/ui-design-skill/main/themes/analytical/setup.sh | bash
+```
 
-# Conversational — AI assistants, docs, knowledge bases
-curl -s https://raw.githubusercontent.com/4rt3miy/design-system/main/themes/conversational/setup.sh | bash
+Conversational — AI assistants, docs, knowledge bases:
+```bash
+curl -s https://raw.githubusercontent.com/4rt3miy/ui-design-skill/main/themes/conversational/setup.sh | bash
+```
 
-# Vital — health, wellness, consumer apps
-curl -s https://raw.githubusercontent.com/4rt3miy/design-system/main/themes/vital/setup.sh | bash
+Vital — health, wellness, consumer apps:
+```bash
+curl -s https://raw.githubusercontent.com/4rt3miy/ui-design-skill/main/themes/vital/setup.sh | bash
 ```
 
 **3. Open Claude Code and start prompting**

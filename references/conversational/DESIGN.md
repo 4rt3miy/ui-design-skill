@@ -137,6 +137,7 @@ Height: `42px` · Radius: `12px` · Focus ring: primary at 8% opacity
 ## Don'ts
 
 - Never introduce a second typeface
+- Never substitute Crimson Pro for another typeface — not Inter, not a sans-serif, not "something more suited to docs"
 - Never use raw hex values in components
 - Never use arbitrary Tailwind spacing values
 - Never use filled icons

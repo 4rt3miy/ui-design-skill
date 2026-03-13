@@ -42,6 +42,8 @@ Once confirmed (or if the user just continues prompting), load the bundled refer
 
 Treat these exactly as on-disk files in Path 1. The `references/[theme]/globals.css` is also available if token values are needed.
 
+**Design decisions in DESIGN.md are non-negotiable.** Never substitute, rationalize away, or override any typeface, color, spacing, or token — even if you believe a different choice would be better suited to the use case. If DESIGN.md specifies Crimson Pro, use Crimson Pro. If it specifies a parchment background, use it. Your aesthetic preferences do not apply in Path 1 or Path 2.
+
 If the user corrects the theme or stack, switch immediately and reload before generating.
 
 **Stack adaptation rules (tokens-only):**
@@ -80,6 +82,8 @@ Then implement working code (HTML/CSS/JS, React, Vue, etc.) that is:
 - Meticulously refined in every detail
 
 ## Frontend Aesthetics Guidelines
+
+> **Path 3 only.** These guidelines apply only when no theme has been selected and no `CLAUDE.md` is present. In Path 1 and Path 2, all aesthetic decisions come from `DESIGN.md` — not from these guidelines.
 
 Focus on:
 - **Typography**: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics; unexpected, characterful font choices. Pair a distinctive display font with a refined body font.

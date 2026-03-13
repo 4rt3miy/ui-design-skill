@@ -173,6 +173,7 @@ Intentionally more restrained than the other themes — precision over softness.
 ## Don'ts
 
 - Never introduce a second typeface
+- Never substitute DM Sans for another typeface
 - Never use raw hex values in components
 - Never use pill-shaped badges — this theme is precise not playful
 - Never use large padding or generous whitespace where compact works
