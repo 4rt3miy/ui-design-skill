@@ -74,6 +74,14 @@ After that, just type `claude` as normal.
 
 ---
 
-### If you have a project from [4rt3miy/design-system](https://github.com/4rt3miy/design-system)
+### Starting from a template
 
-Run `setup.sh` from the root of your project, then open Claude Code and start prompting. Everything is configured automatically.
+[4rt3miy/design-system](https://github.com/4rt3miy/design-system) is a starter template with a theme already picked and everything pre-configured. Clone it to start a new project:
+
+```bash
+git clone https://github.com/4rt3miy/design-system.git my-project
+cd my-project
+./setup.sh
+```
+
+Then open Claude Code and start prompting. The design system is already in place — no extra steps.
