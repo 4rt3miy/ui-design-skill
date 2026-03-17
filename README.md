@@ -47,36 +47,9 @@ Just say yes and it builds. If it picked wrong, tell it and it switches.
 
 ## Getting started
 
-### Starting from scratch (most common)
+### New project
 
-Run these two commands once — they install the skill so it's available every time you open Claude Code.
-
-```bash
-# Save the skill somewhere permanent on your machine
-git clone https://github.com/4rt3miy/ui-design-skill.git ~/skills/ui-design-skill
-```
-
-Then launch Claude Code like this:
-
-```bash
-claude --plugin-dir ~/skills/ui-design-skill
-```
-
-From now on, whenever you ask Claude to build UI, the design system is automatically applied. No config, no files to touch.
-
-**To make this permanent** (so you never have to add the flag again), add one line to your shell config:
-
-```bash
-alias claude='claude --plugin-dir ~/skills/ui-design-skill'
-```
-
-After that, just type `claude` as normal.
-
----
-
-### Starting from a template (recommended)
-
-Create a Next.js project and run one setup command. Everything is configured automatically — shadcn, the right font, color tokens, and the design files Claude needs.
+The cleanest setup. Creates a Next.js project and configures everything automatically — shadcn, the right font, color tokens, and the design files Claude needs.
 
 **1. Create a Next.js project**
 ```bash
@@ -106,4 +79,29 @@ curl -s https://raw.githubusercontent.com/4rt3miy/ui-design-skill/main/themes/vi
 claude
 ```
 
-The design system is already configured — Claude reads it automatically.
+Claude reads the design files automatically. Just describe what you want to build.
+
+---
+
+### Existing project
+
+No setup needed. Install the skill once and it works in any project you open — Claude applies the design system automatically based on what you're building.
+
+**1. Clone the skill once**
+```bash
+git clone https://github.com/4rt3miy/ui-design-skill.git ~/skills/ui-design-skill
+```
+
+**2. Launch Claude Code with the skill loaded**
+```bash
+claude --plugin-dir ~/skills/ui-design-skill
+```
+
+That's it. Works in any project, no files added to your repo.
+
+**To avoid typing the flag every time**, add this to your shell config (`~/.zshrc` or `~/.bashrc`):
+```bash
+alias claude='claude --plugin-dir ~/skills/ui-design-skill'
+```
+
+Then just type `claude` as normal.
