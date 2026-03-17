@@ -85,19 +85,32 @@ Claude reads the design files automatically. Just describe what you want to buil
 
 ### Existing project
 
-No setup needed. Install the skill once and it works in any project you open — Claude applies the design system automatically based on what you're building.
+No setup needed. Clone the skill once, then launch Claude Code with it loaded — works in any project, nothing added to your repo.
 
 **1. Clone the skill once**
 ```bash
 git clone https://github.com/4rt3miy/ui-design-skill.git ~/skills/ui-design-skill
 ```
 
-**2. Launch Claude Code with the skill loaded**
+**2. Launch Claude Code from your project with the skill loaded**
+
+macOS / Linux:
 ```bash
+cd your-project
 claude --plugin-dir ~/skills/ui-design-skill
 ```
 
-That's it. Works in any project, no files added to your repo.
+Windows:
+```powershell
+cd your-project
+claude --plugin-dir "C:\Users\YourName\skills\ui-design-skill"
+```
+
+**To verify it loaded**, ask Claude at the start of any session:
+```
+what skills do you have loaded?
+```
+You should see `ui-design-skill:frontend-design` in the list.
 
 **To avoid typing the flag every time**, add this to your shell config (`~/.zshrc` or `~/.bashrc`):
 ```bash
