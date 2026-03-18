@@ -63,17 +63,17 @@ cd my-project
 
 Analytical — dashboards, data tools, admin panels:
 ```bash
-curl -s https://raw.githubusercontent.com/4rt3miy/ui-design-skill/main/themes/analytical/setup.sh | bash
+curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/analytical/setup.sh | bash
 ```
 
 Conversational — AI assistants, docs, knowledge bases:
 ```bash
-curl -s https://raw.githubusercontent.com/4rt3miy/ui-design-skill/main/themes/conversational/setup.sh | bash
+curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/conversational/setup.sh | bash
 ```
 
 Vital — health, wellness, consumer apps:
 ```bash
-curl -s https://raw.githubusercontent.com/4rt3miy/ui-design-skill/main/themes/vital/setup.sh | bash
+curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/vital/setup.sh | bash
 ```
 
 **3. Open Claude Code and start prompting**
@@ -91,7 +91,7 @@ No setup needed. Clone the skill once, then launch Claude Code with it loaded �
 
 **1. Clone the skill once**
 ```bash
-git clone https://github.com/4rt3miy/ui-design-skill.git ~/skills/ui-design-skill
+git clone https://github.com/Blade-Labs/ui-design-skill.git ~/skills/ui-design-skill
 ```
 
 **2. Launch Claude Code from your project with the skill loaded**
