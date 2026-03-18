@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-REPO="https://raw.githubusercontent.com/4rt3miy/ui-design-skill/main"
+REPO="https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main"
 THEME="analytical"
 
 echo "Setting up Analytical theme..."
