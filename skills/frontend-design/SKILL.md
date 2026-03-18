@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.
+description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build, create, or design any frontend UI — including web components, pages, dashboards, apps, landing pages, React components, HTML/CSS layouts, admin panels, forms, or any visual interface. Also use when the user says "use Analytical", "use Conversational", "use Vital", "switch design system", or "apply the design system". Generates creative, polished code and UI that avoids generic AI aesthetics.
 license: Complete terms in LICENSE.txt
 ---
 
