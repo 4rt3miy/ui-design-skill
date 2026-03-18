@@ -45,6 +45,8 @@ Claude will confirm before generating anything:
 
 Just say yes and it builds. If it picked wrong, tell it and it switches.
 
+> **Note:** Claude Code uses the word "theme" for its own dark/light color setting. To avoid confusion, say **"use the Conversational design system"** or **"switch to Analytical"** — not "change the theme".
+
 ## Getting started
 
 ### New project
