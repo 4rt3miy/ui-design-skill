@@ -1,6 +1,6 @@
 # Design System
 
-This project uses the **Vital** theme.
+This project uses the **Ali** design system.
 
 ## Before any UI work
 
@@ -10,12 +10,12 @@ Read these two files first — they define all design decisions:
 
 ## Non-negotiables
 
-- Typeface: **Quicksand** — never substitute for another font
-- Background: `bg-background` (clean white)
-- Primary: `bg-primary` (fresh green)
+- Typeface: **Crimson Pro** — never substitute for Inter, any sans-serif, or any other font
+- Background: `bg-background` (warm parchment #F7F6F3) — never plain white
+- Primary: `bg-primary` (forest green #1F5B46)
 - Components: shadcn/ui only — never raw HTML elements
 - Icons: Lucide React only, `strokeWidth={1.5}`
-- Tokens: semantic only — never raw hex or HSL values in components
+- Tokens: semantic only — never raw hex values in components
 
 ## Stack
 

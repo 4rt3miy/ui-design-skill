@@ -2,9 +2,9 @@
 set -e
 
 REPO="https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main"
-THEME="vital"
+THEME="zeroh"
 
-echo "Setting up Vital theme..."
+echo "Setting up Zeroh design system..."
 
 # Install shadcn
 npx shadcn@latest init -d
@@ -33,7 +33,7 @@ const quicksand = Quicksand({
 
 export const metadata: Metadata = {
   title: "My App",
-  description: "Built with the Vital design system",
+  description: "Built with the Zeroh design system",
 };
 
 export default function RootLayout({

@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build, create, or design any frontend UI — including web components, pages, dashboards, apps, landing pages, React components, HTML/CSS layouts, admin panels, forms, or any visual interface. Also use when the user says "use Analytical", "use Conversational", "use Vital", "switch design system", or "apply the design system". Generates creative, polished code and UI that avoids generic AI aesthetics.
+description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build, create, or design any frontend UI — including web components, pages, dashboards, apps, landing pages, React components, HTML/CSS layouts, admin panels, forms, or any visual interface. Also use when the user says "use Ali", "use Zeroh", "use Blade Labs GRC", "use GRC", "switch design system", or "apply the design system". Generates creative, polished code and UI that avoids generic AI aesthetics.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -18,10 +18,12 @@ If a `CLAUDE.md` exists in the project root, read it. It will reference a `DESIG
 **Path 2 — No project files, theme and stack inferred**
 If no `CLAUDE.md` exists, infer both the theme and the stack from the request, then surface both as a single confirmation line before generating anything.
 
-**Theme inference:**
-- Reading-heavy, AI assistants, document tools, knowledge bases → **Conversational**
-- Health, wellness, consumer products, onboarding → **Vital**
-- Dashboards, internal tools, data products, admin panels → **Analytical**
+**Brand inference:**
+- Reading-heavy, AI assistants, document tools, knowledge bases, Shariah → **Ali**
+- Health, wellness, consumer products, onboarding → **Zeroh**
+- Dashboards, internal tools, data products, admin panels, compliance, GRC → **Blade Labs GRC**
+
+If no brand signal is present and no `CLAUDE.md` exists, ask the user which brand to use before building.
 
 **Stack inference:**
 - Signals for **Next.js + shadcn**: mentions of Next.js, shadcn, App Router, `npx shadcn`, or the project has a `package.json` with these dependencies
@@ -30,11 +32,11 @@ If no `CLAUDE.md` exists, infer both the theme and the stack from the request, t
 
 When both are inferred, announce both together before generating:
 
-> *"Going with **Analytical** + **React (no shadcn)** — data dashboard, no shadcn detected. Good?"*
+> *"Going with **Blade Labs GRC** + **React (no shadcn)** — data dashboard, no shadcn detected. Good?"*
 
-If only theme is clear but stack is ambiguous, ask once alongside the theme confirmation:
+If only brand is clear but stack is ambiguous, ask once alongside the brand confirmation:
 
-> *"Going with **Conversational** for this. Are you using Next.js + shadcn or plain React?"*
+> *"Going with **Ali** for this. Are you using Next.js + shadcn or plain React?"*
 
 Once confirmed (or if the user just continues prompting), load the bundled references for the chosen theme:
 - `references/[theme]/DESIGN.md` — full design system
@@ -139,9 +141,9 @@ Load these when operating in Path 2 (theme specified, no project files present).
 | File | When to read |
 |---|---|
 | `references/core/PRINCIPLES.md` | Always, for any theme — shared rules |
-| `references/conversational/DESIGN.md` | Conversational theme — typography, color, components |
-| `references/conversational/globals.css` | Conversational token values |
-| `references/vital/DESIGN.md` | Vital theme — typography, color, components |
-| `references/vital/globals.css` | Vital token values |
-| `references/analytical/DESIGN.md` | Analytical theme — typography, color, components |
-| `references/analytical/globals.css` | Analytical token values |
+| `references/ali/DESIGN.md` | Ali design system — typography, color, components |
+| `references/ali/globals.css` | Ali token values |
+| `references/zeroh/DESIGN.md` | Zeroh design system — typography, color, components |
+| `references/zeroh/globals.css` | Zeroh token values |
+| `references/grc/DESIGN.md` | Blade Labs GRC design system — typography, color, components |
+| `references/grc/globals.css` | Blade Labs GRC token values |
