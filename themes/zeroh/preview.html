@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeroh — Design System Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ─── L1 / L2 — Zeroh tokens (HSL format from globals.css) ── */
+    :root {
+      --background-h: 0; --background-s: 0%; --background-l: 100%;
+      --foreground-h: 225; --foreground-s: 16%; --foreground-l: 12%;
+      --muted-h: 144; --muted-s: 33%; --muted-l: 96%;
+      --muted-fg-h: 155; --muted-fg-s: 12%; --muted-fg-l: 36%;
+      --primary-h: 147; --primary-s: 91%; --primary-l: 33%;
+      --primary-fg-h: 144; --primary-fg-s: 100%; --primary-fg-l: 96%;
+      --secondary-h: 148; --secondary-s: 46%; --secondary-l: 90%;
+      --border-h: 145; --border-s: 32%; --border-l: 88%;
+      --accent-h: 156; --accent-s: 44%; --accent-l: 92%;
+
+      /* Resolved for use in CSS */
+      --background:         hsl(0, 0%, 100%);
+      --foreground:         hsl(225, 16%, 12%);
+      --card:               hsl(0, 0%, 100%);
+      --card-foreground:    hsl(225, 16%, 12%);
+      --primary:            hsl(147, 91%, 33%);
+      --primary-foreground: hsl(144, 100%, 96%);
+      --secondary:          hsl(148, 46%, 90%);
+      --secondary-foreground: hsl(147, 40%, 20%);
+      --muted:              hsl(144, 33%, 96%);
+      --muted-foreground:   hsl(155, 12%, 36%);
+      --accent:             hsl(156, 44%, 92%);
+      --accent-foreground:  hsl(158, 32%, 24%);
+      --border:             hsl(145, 32%, 88%);
+      --input:              hsl(145, 32%, 88%);
+      --ring:               hsl(147, 91%, 33%);
+      --destructive:        hsl(0, 84%, 60%);
+      --destructive-foreground: hsl(210, 40%, 98%);
+      --radius: 0.85rem;
+
+      /* Hex equivalents for swatches */
+      --hex-background: #FFFFFF;
+      --hex-foreground: #1A1D2B;
+      --hex-primary: #0E8F3C;
+      --hex-primary-fg: #F0FDF4;
+      --hex-secondary: #CBE9D0;
+      --hex-muted: #EDF7EE;
+      --hex-muted-fg: #516359;
+      --hex-accent: #D2EDE0;
+      --hex-border: #CADECE;
+
+      /* Dark mode overrides */
+      --dark-background: hsl(156, 42%, 6%);
+      --dark-foreground: hsl(148, 45%, 92%);
+      --dark-card: hsl(156, 42%, 6%);
+      --dark-primary: hsl(147, 69%, 45%);
+      --dark-muted: hsl(157, 28%, 14%);
+      --dark-border: hsl(158, 24%, 22%);
+
+      --font-quicksand: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    .dark {
+      --background: hsl(156, 42%, 6%);
+      --foreground: hsl(148, 45%, 92%);
+      --card: hsl(156, 42%, 6%);
+      --card-foreground: hsl(148, 45%, 92%);
+      --primary: hsl(147, 69%, 45%);
+      --primary-foreground: hsl(144, 100%, 96%);
+      --muted: hsl(157, 28%, 14%);
+      --muted-foreground: hsl(150, 22%, 70%);
+      --accent: hsl(157, 28%, 18%);
+      --accent-foreground: hsl(148, 45%, 92%);
+      --border: hsl(158, 24%, 22%);
+      --input: hsl(158, 24%, 22%);
+      --secondary: hsl(158, 30%, 20%);
+      --secondary-foreground: hsl(147, 45%, 92%);
+      --ring: hsl(147, 69%, 45%);
+      --destructive: hsl(0, 62.8%, 30.6%);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-quicksand);
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: background 200ms ease-out, color 200ms ease-out;
+    }
+
+    .page { max-width: 960px; margin: 0 auto; padding: 64px 32px; }
+    .section { margin-bottom: 80px; }
+    .section-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-subtitle {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted-foreground);
+      margin: 32px 0 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+    }
+
+    /* Brand Header */
+    .brand-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 80px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-logo-wrap { color: var(--primary); }
+    .brand-logo-wrap svg { display: block; height: 36px; width: auto; }
+    .brand-meta { text-align: right; }
+    .brand-meta .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: var(--accent);
+      color: var(--accent-foreground);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+    .brand-meta p { font-size: 13px; color: var(--muted-foreground); font-family: var(--font-mono); }
+    .brand-tagline { margin-top: 20px; font-size: 16px; color: var(--muted-foreground); max-width: 440px; line-height: 1.5; }
+
+    /* Dark mode toggle */
+    .dark-toggle {
+      position: fixed;
+      top: 24px;
+      right: 32px;
+      background: var(--secondary);
+      color: var(--secondary-foreground);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-family: var(--font-quicksand);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 150ms ease-out;
+      z-index: 100;
+    }
+    .dark-toggle:hover { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+
+    /* Swatches */
+    .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; }
+    .swatch { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+    .swatch-color { height: 72px; }
+    .swatch-info { padding: 10px 12px; background: var(--card); }
+    .swatch-token { font-family: var(--font-mono); font-size: 10px; color: var(--primary); display: block; margin-bottom: 2px; }
+    .swatch-hex { font-family: var(--font-mono); font-size: 11px; color: var(--foreground); font-weight: 500; }
+    .swatch-usage { font-size: 11px; color: var(--muted-foreground); margin-top: 3px; display: block; }
+
+    /* Primitive scale */
+    .primitive-scale-label { font-family: var(--font-mono); font-size: 11px; font-weight: 500; color: var(--muted-foreground); margin-bottom: 8px; }
+    .primitive-stops-wrap { margin-bottom: 32px; }
+    .primitive-stops-row { display: flex; gap: 3px; margin-bottom: 4px; }
+    .pstop { height: 40px; flex: 1; border-radius: 6px; }
+
+    /* Typography */
+    .type-scale { display: flex; flex-direction: column; gap: 0; }
+    .type-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 180px;
+      align-items: baseline;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .type-row:first-child { border-top: 1px solid var(--border); }
+    .type-meta { font-family: var(--font-mono); font-size: 11px; color: var(--muted-foreground); }
+    .type-usage { font-family: var(--font-mono); font-size: 11px; color: var(--muted-foreground); text-align: right; }
+
+    /* Components */
+    .component-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 32px; }
+
+    .btn {
+      font-family: var(--font-quicksand);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: opacity 150ms ease-out, background 150ms ease-out;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--primary); color: var(--primary-foreground); }
+    .btn-secondary { background: var(--secondary); color: var(--secondary-foreground); border-color: var(--border); }
+    .btn-ghost { background: transparent; color: var(--foreground); }
+    .btn-ghost:hover { background: var(--muted); opacity: 1; }
+    .btn-destructive { background: var(--destructive); color: var(--destructive-foreground); }
+
+    .input-demo {
+      width: 280px;
+      height: 44px;
+      padding: 0 16px;
+      border-radius: 12px;
+      border: 1px solid var(--input);
+      background: var(--card);
+      color: var(--foreground);
+      font-family: var(--font-quicksand);
+      font-size: 14px;
+      font-weight: 500;
+      outline: none;
+      transition: box-shadow 150ms ease-out, border-color 150ms ease-out;
+    }
+    .input-demo:focus {
+      border-color: var(--ring);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
+    }
+
+    .cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+    .card-demo {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card-demo.tinted { background: var(--accent); }
+    .card-demo h4 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+    .card-demo p { font-size: 14px; color: var(--muted-foreground); line-height: 1.5; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-quicksand);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .badge-default { background: var(--muted); color: var(--muted-foreground); border-color: var(--border); }
+    .badge-primary { background: color-mix(in srgb, var(--primary) 12%, transparent); color: var(--primary); border-color: color-mix(in srgb, var(--primary) 25%, transparent); }
+    .badge-success { background: hsl(144, 60%, 90%); color: hsl(147, 70%, 20%); }
+    .badge-warning { background: hsl(45, 90%, 90%); color: hsl(35, 80%, 30%); }
+    .badge-destructive { background: hsl(0, 84%, 95%); color: hsl(0, 72%, 35%); }
+
+    /* Spacing & Radius */
+    .spacing-scale { display: flex; flex-direction: column; gap: 12px; }
+    .spacing-row { display: flex; align-items: center; gap: 16px; }
+    .spacing-bar { background: var(--primary); border-radius: 4px; height: 16px; opacity: 0.7; }
+    .spacing-label { font-family: var(--font-mono); font-size: 11px; color: var(--muted-foreground); min-width: 100px; }
+
+    .radius-scale { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end; }
+    .radius-box { width: 56px; height: 56px; background: var(--primary); opacity: 0.85; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 6px; }
+    .radius-val { font-family: var(--font-mono); font-size: 10px; color: var(--primary-foreground); }
+    .radius-name { font-family: var(--font-mono); font-size: 10px; color: var(--muted-foreground); margin-top: 6px; text-align: center; }
+    .radius-item { display: flex; flex-direction: column; align-items: center; }
+
+    /* Motion */
+    .motion-table { width: 100%; border-collapse: collapse; }
+    .motion-table th, .motion-table td { text-align: left; padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--border); }
+    .motion-table th { font-size: 11px; font-family: var(--font-mono); color: var(--muted-foreground); background: var(--muted); font-weight: 500; }
+    .motion-table td:first-child { font-family: var(--font-mono); font-size: 12px; color: var(--primary); }
+
+    /* Token table */
+    .token-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .token-table th { text-align: left; padding: 10px 14px; font-family: var(--font-mono); font-size: 10px; font-weight: 500; color: var(--muted-foreground); background: var(--muted); border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.06em; }
+    .token-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .token-table tr:hover td { background: var(--muted); }
+    .token-table td:first-child { font-family: var(--font-mono); font-size: 11px; color: var(--primary); }
+    .token-table td:nth-child(2) { font-family: var(--font-mono); font-size: 11px; color: var(--muted-foreground); }
+    .token-table td:nth-child(3) { font-family: var(--font-mono); font-size: 11px; }
+    .dot { display: inline-block; width: 16px; height: 16px; border-radius: 4px; vertical-align: middle; margin-right: 8px; border: 1px solid var(--border); }
+    .token-group-label td { font-size: 10px; font-family: var(--font-mono); color: var(--muted-foreground); background: var(--background) !important; padding: 8px 14px 4px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+
+    code { font-family: var(--font-mono); font-size: 12px; background: var(--muted); padding: 2px 6px; border-radius: 4px; color: var(--primary); }
+  </style>
+</head>
+<body>
+<button class="dark-toggle" onclick="document.body.classList.toggle('dark')">Toggle Dark Mode</button>
+
+<div class="page">
+
+  <!-- Brand Header -->
+  <header class="brand-header">
+    <div>
+      <div class="brand-logo-wrap">
+        <svg width="151" height="34" viewBox="0 0 151 34" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:28px;width:auto;">
+          <path d="M101.53 16.4404L100.1 19.9199H102.93L103.86 22.2598L96.8896 22.25L100.38 13.5898L101.53 16.4404Z" fill="currentColor"/>
+          <path d="M107.34 22.2305H104.48L101.07 13.7197C101.05 13.6797 101.04 13.6398 101.02 13.5898C100.95 13.3799 100.9 13.1298 100.87 12.8799C100.81 12.27 100.87 11.6001 101.06 11.1201L101.09 11.0303L101.08 11.0195L101.93 8.90039L107.34 22.2305Z" fill="currentColor"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5703 0C23.3701 0.000197921 25.6396 2.27043 25.6396 5.07031C25.6396 6.26018 25.2201 7.42016 24.4502 8.33008L9.92969 25.6396H27.7197C27.8797 25.9696 28.06 26.2904 28.25 26.6104C28.53 27.1003 28.84 27.5801 29.1699 28.04C29.2099 28.1 29.2499 28.1598 29.2998 28.2197C29.5597 28.5996 29.8498 28.9597 30.1396 29.3096C30.2196 29.3995 30.2998 29.4997 30.3896 29.5996C31.1696 30.4996 32.03 31.3301 32.96 32.0801C33.0199 32.1301 33.0904 32.1805 33.1504 32.2305C33.4702 32.4803 33.7999 32.7301 34.1396 32.96H5.0498C2.25992 32.9599 9.88741e-05 30.7 0 27.9102C0 26.7203 0.419808 25.5701 1.17969 24.6602L15.7305 7.32031H3.66016C1.64022 7.32031 9.90977e-05 5.68007 0 3.66016C0 1.64016 1.64016 0 3.66016 0H20.5703Z" fill="currentColor"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M129.62 11.4102C130.66 11.1702 131.73 11.0202 132.84 10.9902H133.89C134.86 11.0202 135.8 11.1401 136.72 11.3301C138.23 11.6699 139.46 12.1097 140.61 12.6797C141.7 13.2504 142.19 13.5598 142.66 13.8896V0H150.03V32.9805H140.65C141.61 31.5803 142.1 30.4902 142.37 29.3203C142.53 28.5505 142.6 27.9202 142.6 27.2803C142.46 25.6699 142 23.8304 140.94 22.0098C138.22 19.18 136 18.2197 133.55 18.2197C132.08 18.2197 130.68 18.5705 129.45 19.1904V0H129.62V11.4102Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <p class="brand-tagline">Organic, friendly, approachable. Warmth and ease — a product that feels human.</p>
+    </div>
+    <div class="brand-meta">
+      <span class="tag">Design System Reference</span>
+      <p>Quicksand · Fresh Green · White</p>
+      <p style="margin-top:4px;">Dark mode supported · Sans-serif</p>
+    </div>
+  </header>
+
+  <!-- Color System -->
+  <section class="section">
+    <h2 class="section-title">Color System</h2>
+
+    <p class="section-subtitle">Semantic Tokens — use these in components</p>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #CADECE;"></div>
+        <div class="swatch-info"><span class="swatch-token">--background</span><span class="swatch-hex">#FFFFFF</span><span class="swatch-usage">App background</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1A1D2B;"></div>
+        <div class="swatch-info"><span class="swatch-token">--foreground</span><span class="swatch-hex">hsl(225,16%,12%)</span><span class="swatch-usage">Primary text</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0E8F3C;"></div>
+        <div class="swatch-info"><span class="swatch-token">--primary</span><span class="swatch-hex">hsl(147,91%,33%)</span><span class="swatch-usage">Buttons, active states</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D2EDE0;"></div>
+        <div class="swatch-info"><span class="swatch-token">--accent</span><span class="swatch-hex">hsl(156,44%,92%)</span><span class="swatch-usage">Accent tint areas</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#EDF7EE;border:1px solid #CADECE;"></div>
+        <div class="swatch-info"><span class="swatch-token">--muted</span><span class="swatch-hex">hsl(144,33%,96%)</span><span class="swatch-usage">Hover bg, subtle fills</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#516359;"></div>
+        <div class="swatch-info"><span class="swatch-token">--muted-foreground</span><span class="swatch-hex">hsl(155,12%,36%)</span><span class="swatch-usage">Secondary text</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#CBE9D0;"></div>
+        <div class="swatch-info"><span class="swatch-token">--secondary</span><span class="swatch-hex">hsl(148,46%,90%)</span><span class="swatch-usage">Secondary surfaces</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#CADECE;"></div>
+        <div class="swatch-info"><span class="swatch-token">--border</span><span class="swatch-hex">hsl(145,32%,88%)</span><span class="swatch-usage">Dividers, outlines</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#EF4444;"></div>
+        <div class="swatch-info"><span class="swatch-token">--destructive</span><span class="swatch-hex">hsl(0,84%,60%)</span><span class="swatch-usage">Errors, critical</span></div>
+      </div>
+    </div>
+
+    <p class="section-subtitle" style="margin-top:40px;">Dark Mode Tokens</p>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#081A10;"></div>
+        <div class="swatch-info"><span class="swatch-token">--background (dark)</span><span class="swatch-hex">hsl(156,42%,6%)</span><span class="swatch-usage">Dark app background</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#25D461;"></div>
+        <div class="swatch-info"><span class="swatch-token">--primary (dark)</span><span class="swatch-hex">hsl(147,69%,45%)</span><span class="swatch-usage">Brighter primary on dark</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#152B1C;"></div>
+        <div class="swatch-info"><span class="swatch-token">--muted (dark)</span><span class="swatch-hex">hsl(157,28%,14%)</span><span class="swatch-usage">Dark muted bg</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#243D2B;"></div>
+        <div class="swatch-info"><span class="swatch-token">--border (dark)</span><span class="swatch-hex">hsl(158,24%,22%)</span><span class="swatch-usage">Dark dividers</span></div>
+      </div>
+    </div>
+
+    <p class="section-subtitle" style="margin-top:40px;">Green Scale — Primitive Reference</p>
+    <div class="primitive-stops-wrap">
+      <div class="primitive-stops-row">
+        <div title="hsl(144,33%,96%)" class="pstop" style="background:hsl(144,33%,96%);border:1px solid #CADECE;"></div>
+        <div title="hsl(148,46%,90%)" class="pstop" style="background:hsl(148,46%,90%);"></div>
+        <div title="hsl(156,44%,92%)" class="pstop" style="background:hsl(156,44%,92%);"></div>
+        <div title="hsl(145,32%,88%)" class="pstop" style="background:hsl(145,32%,88%);"></div>
+        <div title="hsl(147,40%,20%)·fg" class="pstop" style="background:hsl(147,40%,60%);"></div>
+        <div title="hsl(155,12%,36%)" class="pstop" style="background:hsl(155,12%,56%);"></div>
+        <div title="primary hsl(147,91%,33%)" class="pstop" style="background:hsl(147,91%,33%);outline:2px solid #0E8F3C;outline-offset:2px;"></div>
+        <div title="hsl(147,69%,45%)" class="pstop" style="background:hsl(147,69%,45%);"></div>
+        <div title="hsl(158,30%,20%)" class="pstop" style="background:hsl(158,30%,20%);"></div>
+        <div title="hsl(157,28%,14%)" class="pstop" style="background:hsl(157,28%,14%);"></div>
+        <div title="hsl(156,42%,6%)" class="pstop" style="background:hsl(156,42%,6%);"></div>
+      </div>
+      <div class="primitive-stops-row">
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted-foreground);flex:1;text-align:center;">muted</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted-foreground);flex:1;text-align:center;">secondary</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted-foreground);flex:1;text-align:center;">accent</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted-foreground);flex:1;text-align:center;">border</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted-foreground);flex:1;text-align:center;">light</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted-foreground);flex:1;text-align:center;">mid</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--primary);flex:1;text-align:center;font-weight:700;">primary</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted-foreground);flex:1;text-align:center;">dark-primary</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted-foreground);flex:1;text-align:center;">dk-secondary</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted-foreground);flex:1;text-align:center;">dk-muted</div>
+        <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted-foreground);flex:1;text-align:center;">dk-bg</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section class="section">
+    <h2 class="section-title">Typography — Quicksand, sole typeface</h2>
+    <div class="type-scale">
+      <div class="type-row">
+        <div class="type-meta">Display<br>40px / 700</div>
+        <div style="font-size:40px;font-weight:700;line-height:1.1;">Live Better Today</div>
+        <div class="type-usage">Hero headers, page titles</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Heading 1<br>28px / 600</div>
+        <div style="font-size:28px;font-weight:600;line-height:1.2;">Your Wellness Journey</div>
+        <div class="type-usage">Section titles, modal headers</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Heading 2<br>22px / 600</div>
+        <div style="font-size:22px;font-weight:600;line-height:1.3;">Daily Progress</div>
+        <div class="type-usage">Card headers, panel titles</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Heading 3<br>18px / 600</div>
+        <div style="font-size:18px;font-weight:600;line-height:1.4;">Activity Summary</div>
+        <div class="type-usage">Sub-sections, widget titles</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Body Large<br>16px / 500</div>
+        <div style="font-size:16px;font-weight:500;line-height:1.6;">Track your habits, celebrate your wins, and build a healthier life one day at a time.</div>
+        <div class="type-usage">Primary readable content</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Body<br>14px / 400</div>
+        <div style="font-size:14px;font-weight:400;line-height:1.6;">Secondary content and descriptions use this size. Keep it clear and approachable.</div>
+        <div class="type-usage">Secondary content</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Label / UI<br>13px / 600</div>
+        <div style="font-size:13px;font-weight:600;">Start Workout · Log Meal · View Progress</div>
+        <div class="type-usage">Navigation, badges, buttons</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">Caption<br>12px / 400</div>
+        <div style="font-size:12px;font-weight:400;color:var(--muted-foreground);">Last synced 3 minutes ago · App v2.1</div>
+        <div class="type-usage">Timestamps, metadata</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section class="section">
+    <h2 class="section-title">Components</h2>
+
+    <p class="section-subtitle">Buttons — rounded, friendly</p>
+    <div class="component-row">
+      <button class="btn btn-primary">Get Started</button>
+      <button class="btn btn-secondary">Learn More</button>
+      <button class="btn btn-ghost">Cancel</button>
+      <button class="btn btn-destructive">Remove</button>
+    </div>
+
+    <p class="section-subtitle">Badges — always pill-shaped</p>
+    <div class="component-row">
+      <span class="badge badge-default">Default</span>
+      <span class="badge badge-primary">Active</span>
+      <span class="badge badge-success">Completed</span>
+      <span class="badge badge-warning">Pending</span>
+      <span class="badge badge-destructive">Overdue</span>
+    </div>
+
+    <p class="section-subtitle">Input</p>
+    <div class="component-row">
+      <input class="input-demo" type="text" placeholder="Search activities, goals..." />
+    </div>
+
+    <p class="section-subtitle">Cards — generous radius</p>
+    <div class="cards-row">
+      <div class="card-demo">
+        <h4>Default Card</h4>
+        <p>Clean white surface · soft green border · gentle shadow. Primary content containers.</p>
+      </div>
+      <div class="card-demo tinted">
+        <h4>Tinted Card</h4>
+        <p>Mint accent background. Used for highlights, featured content, active selections.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spacing & Radius -->
+  <section class="section">
+    <h2 class="section-title">Spacing & Radius</h2>
+
+    <p class="section-subtitle">Spacing Scale — 4px base</p>
+    <div class="spacing-scale">
+      <div class="spacing-row"><span class="spacing-label">4px · p-1</span><div class="spacing-bar" style="width:4px;"></div><span style="font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);margin-left:12px;">Icon gap, tight inline</span></div>
+      <div class="spacing-row"><span class="spacing-label">8px · p-2</span><div class="spacing-bar" style="width:8px;"></div><span style="font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);margin-left:12px;">Tag padding</span></div>
+      <div class="spacing-row"><span class="spacing-label">12px · p-3</span><div class="spacing-bar" style="width:12px;"></div><span style="font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);margin-left:12px;">Card inner gap</span></div>
+      <div class="spacing-row"><span class="spacing-label">16px · p-4</span><div class="spacing-bar" style="width:16px;"></div><span style="font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);margin-left:12px;">Standard section gap</span></div>
+      <div class="spacing-row"><span class="spacing-label">24px · p-6</span><div class="spacing-bar" style="width:24px;"></div><span style="font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);margin-left:12px;">Card padding</span></div>
+      <div class="spacing-row"><span class="spacing-label">32px · p-8</span><div class="spacing-bar" style="width:32px;"></div><span style="font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);margin-left:12px;">Between components</span></div>
+      <div class="spacing-row"><span class="spacing-label">48px · p-12</span><div class="spacing-bar" style="width:48px;"></div><span style="font-family:var(--font-mono);font-size:11px;color:var(--muted-foreground);margin-left:12px;">Section vertical rhythm</span></div>
+    </div>
+
+    <p class="section-subtitle" style="margin-top:40px;">Border Radius — soft, never sharp</p>
+    <div class="radius-scale">
+      <div class="radius-item"><div class="radius-box" style="border-radius:8px;"><span class="radius-val">8</span></div><span class="radius-name">Small</span></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:12px;"><span class="radius-val">12</span></div><span class="radius-name">Button/Input</span></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:16px;"><span class="radius-val">16</span></div><span class="radius-name">Card default</span></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:24px;"><span class="radius-val">24</span></div><span class="radius-name">Card large</span></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:999px;width:56px;"><span class="radius-val">full</span></div><span class="radius-name">Badge/Avatar</span></div>
+    </div>
+  </section>
+
+  <!-- Motion -->
+  <section class="section">
+    <h2 class="section-title">Motion</h2>
+    <table class="motion-table">
+      <thead><tr><th>Context</th><th>Duration</th><th>Easing</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr><td>transition</td><td>150ms</td><td>ease-out</td><td>Hover states, colour changes, opacity shifts</td></tr>
+        <tr><td>enter</td><td>200ms</td><td>ease-out</td><td>Modals, panels, drawers</td></tr>
+        <tr><td>exit</td><td>120ms</td><td>ease-out</td><td>Dismissals</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:16px;display:flex;gap:24px;flex-wrap:wrap;">
+      <div style="font-size:13px;color:var(--muted-foreground);">✓ ease-out only</div>
+      <div style="font-size:13px;color:var(--muted-foreground);">✗ No bounce / spring</div>
+      <div style="font-size:13px;color:var(--muted-foreground);">✗ No ease-in-out</div>
+      <div style="font-size:13px;color:var(--muted-foreground);">✗ No linear</div>
+    </div>
+  </section>
+
+  <!-- Token Map -->
+  <section class="section">
+    <h2 class="section-title">Token Architecture — Developer Reference</h2>
+    <p style="font-size:13px;color:var(--muted-foreground);margin-bottom:16px;">Note: Zeroh uses HSL format. In components use <code>bg-primary</code>, <code>text-foreground</code> etc. — never raw HSL values.</p>
+    <table class="token-table">
+      <thead>
+        <tr><th>Semantic Token</th><th>HSL Value</th><th>Approx Hex</th><th>Usage</th></tr>
+      </thead>
+      <tbody>
+        <tr class="token-group-label"><td colspan="4">Page Surface</td></tr>
+        <tr><td>--background</td><td>0 0% 100%</td><td><span class="dot" style="background:#FFFFFF;border:1px solid #CADECE;"></span>#FFFFFF</td><td>App background</td></tr>
+        <tr><td>--foreground</td><td>225 16% 12%</td><td><span class="dot" style="background:#1A1D2B;"></span>#1A1D2B</td><td>Primary text</td></tr>
+        <tr><td>--card</td><td>0 0% 100%</td><td><span class="dot" style="background:#FFFFFF;border:1px solid #CADECE;"></span>#FFFFFF</td><td>Card surfaces</td></tr>
+        <tr class="token-group-label"><td colspan="4">Brand & Action</td></tr>
+        <tr><td>--primary</td><td>147 91% 33%</td><td><span class="dot" style="background:#0E8F3C;"></span>#0E8F3C</td><td>Primary buttons, active</td></tr>
+        <tr><td>--primary-foreground</td><td>144 100% 96%</td><td><span class="dot" style="background:#F0FDF4;border:1px solid #CADECE;"></span>#F0FDF4</td><td>Text on primary</td></tr>
+        <tr><td>--secondary</td><td>148 46% 90%</td><td><span class="dot" style="background:#CBE9D0;"></span>#CBE9D0</td><td>Secondary surfaces</td></tr>
+        <tr class="token-group-label"><td colspan="4">Muted & Accent</td></tr>
+        <tr><td>--muted</td><td>144 33% 96%</td><td><span class="dot" style="background:#EDF7EE;border:1px solid #CADECE;"></span>#EDF7EE</td><td>Hover bg, subtle fills</td></tr>
+        <tr><td>--muted-foreground</td><td>155 12% 36%</td><td><span class="dot" style="background:#516359;"></span>#516359</td><td>Secondary text</td></tr>
+        <tr><td>--accent</td><td>156 44% 92%</td><td><span class="dot" style="background:#D2EDE0;"></span>#D2EDE0</td><td>Accent tint areas</td></tr>
+        <tr class="token-group-label"><td colspan="4">Borders & Focus</td></tr>
+        <tr><td>--border</td><td>145 32% 88%</td><td><span class="dot" style="background:#CADECE;"></span>#CADECE</td><td>Card outlines, dividers</td></tr>
+        <tr><td>--ring</td><td>147 91% 33%</td><td><span class="dot" style="background:#0E8F3C;"></span>#0E8F3C</td><td>Focus rings</td></tr>
+        <tr><td>--destructive</td><td>0 84% 60%</td><td><span class="dot" style="background:#EF4444;"></span>#EF4444</td><td>Errors, critical states</td></tr>
+        <tr class="token-group-label"><td colspan="4">Dark Mode Overrides (.dark class)</td></tr>
+        <tr><td>--background</td><td>156 42% 6%</td><td><span class="dot" style="background:#081A10;"></span>#081A10</td><td>Dark app background</td></tr>
+        <tr><td>--primary</td><td>147 69% 45%</td><td><span class="dot" style="background:#25D461;"></span>#25D461</td><td>Brighter primary on dark</td></tr>
+        <tr><td>--muted</td><td>157 28% 14%</td><td><span class="dot" style="background:#152B1C;"></span>#152B1C</td><td>Dark muted bg</td></tr>
+        <tr><td>--border</td><td>158 24% 22%</td><td><span class="dot" style="background:#243D2B;"></span>#243D2B</td><td>Dark dividers</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer style="border-top:1px solid var(--border);padding-top:32px;color:var(--muted-foreground);font-size:13px;display:flex;justify-content:space-between;align-items:center;">
+    <span>Zeroh Design System · Blade Labs</span>
+    <span style="font-family:var(--font-mono);font-size:11px;">Quicksand · hsl(147,91%,33%) · #FFFFFF</span>
+  </footer>
+</div>
+</body>
+</html>

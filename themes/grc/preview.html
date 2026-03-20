@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blade Labs GRC — Design System Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       L1 PRIMITIVES
+    ============================================================ */
+    :root {
+      --stone-50:  #FAFAF9;
+      --stone-100: #F5F5F4;
+      --stone-200: #E7E5E4;
+      --stone-300: #D6D3D1;
+      --stone-400: #A8A29E;
+      --stone-500: #78716C;
+      --stone-600: #57534E;
+      --stone-700: #44403C;
+      --stone-800: #292524;
+      --stone-900: #1C1917;
+      --stone-950: #0C0A09;
+
+      --amber-50:  #FFFBEB;
+      --amber-100: #FEF3C7;
+      --amber-200: #FDE68A;
+      --amber-300: #FCD34D;
+      --amber-400: #FBBF24;
+      --amber-500: #F59E0B;
+      --amber-600: #D97706;
+      --amber-700: #B45309;
+      --amber-800: #92400E;
+      --amber-900: #78350F;
+      --amber-950: #451A03;
+
+      --warm-50:  #F5F3F0;
+      --warm-100: #EEEBE6;
+      --warm-200: #DDD9D3;
+      --warm-300: #C9C4BC;
+
+      /* ============================================================
+         L2 SEMANTICS (light mode)
+      ============================================================ */
+      --background:           var(--warm-50);
+      --foreground:           var(--stone-900);
+      --card:                 #FFFFFF;
+      --card-foreground:      var(--stone-900);
+      --popover:              #FFFFFF;
+      --popover-foreground:   var(--stone-900);
+      --primary:              var(--amber-800);
+      --primary-foreground:   var(--amber-100);
+      --secondary:            var(--warm-100);
+      --secondary-foreground: var(--stone-900);
+      --muted:                var(--warm-100);
+      --muted-foreground:     var(--stone-500);
+      --accent:               var(--amber-100);
+      --accent-foreground:    var(--stone-900);
+      --border:               var(--warm-200);
+      --input:                var(--warm-200);
+      --ring:                 var(--amber-600);
+      --destructive:          #DC2626;
+      --destructive-foreground: #FEF2F2;
+
+      --chart-1: var(--amber-600);
+      --chart-2: #0F766E;
+      --chart-3: #7C3AED;
+      --chart-4: #DC2626;
+      --chart-5: var(--stone-500);
+
+      --radius: 0.5rem;
+      --radius-sm: calc(var(--radius) - 2px);
+      --radius-md: var(--radius);
+      --radius-lg: calc(var(--radius) + 4px);
+      --radius-xl: calc(var(--radius) + 8px);
+    }
+
+    .dark {
+      --background:           var(--stone-900);
+      --foreground:           var(--stone-100);
+      --card:                 var(--stone-800);
+      --card-foreground:      var(--stone-100);
+      --popover:              var(--stone-800);
+      --popover-foreground:   var(--stone-100);
+      --primary:              var(--amber-500);
+      --primary-foreground:   var(--stone-900);
+      --secondary:            var(--stone-700);
+      --secondary-foreground: var(--stone-100);
+      --muted:                var(--stone-700);
+      --muted-foreground:     var(--stone-400);
+      --accent:               var(--amber-900);
+      --accent-foreground:    var(--amber-100);
+      --border:               var(--stone-700);
+      --input:                var(--stone-700);
+      --ring:                 var(--amber-500);
+      --destructive:          #EF4444;
+      --destructive-foreground: #FEF2F2;
+    }
+
+    /* ============================================================
+       BASE RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 16px;
+      margin-top: 28px;
+    }
+
+    h2:first-child { margin-top: 0; }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-identity {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-tagline {
+      font-size: 12px;
+      color: var(--muted-foreground);
+      font-weight: 400;
+    }
+
+    .dark-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--card);
+      color: var(--foreground);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .dark-toggle:hover {
+      background: var(--muted);
+    }
+
+    /* ============================================================
+       COLOR SWATCHES
+    ============================================================ */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .swatch-color {
+      height: 60px;
+      width: 100%;
+    }
+
+    .swatch-info {
+      padding: 8px 10px;
+      background: var(--card);
+    }
+
+    .swatch-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--foreground);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .swatch-value {
+      font-size: 10px;
+      color: var(--muted-foreground);
+      font-family: 'DM Mono', monospace;
+      margin-top: 2px;
+    }
+
+    .swatch-usage {
+      font-size: 10px;
+      color: var(--muted-foreground);
+      margin-top: 3px;
+    }
+
+    /* Primitive palette */
+    .palette-row {
+      display: flex;
+      gap: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .palette-stop {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .palette-color {
+      height: 40px;
+    }
+
+    .palette-label {
+      padding: 4px 6px;
+      background: var(--card);
+      font-size: 9px;
+      font-family: 'DM Mono', monospace;
+      color: var(--muted-foreground);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .palette-section-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted-foreground);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      margin-top: 16px;
+    }
+
+    .palette-section-title:first-child { margin-top: 0; }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    .type-scale {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .type-row:last-child { border-bottom: none; }
+
+    .type-meta {
+      width: 140px;
+      flex-shrink: 0;
+    }
+
+    .type-role {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+    }
+
+    .type-spec {
+      font-size: 10px;
+      color: var(--muted-foreground);
+      font-family: 'DM Mono', monospace;
+      margin-top: 2px;
+    }
+
+    .type-sample {
+      flex: 1;
+    }
+
+    /* ============================================================
+       COMPONENTS
+    ============================================================ */
+    .component-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .component-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--primary-foreground);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover { opacity: 0.9; }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--secondary-foreground);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover { background: var(--muted); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--foreground);
+      border-color: var(--border);
+    }
+    .btn-outline:hover { background: var(--muted); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--foreground);
+      border-color: transparent;
+    }
+    .btn-ghost:hover { background: var(--muted); }
+
+    .btn-destructive {
+      background: var(--destructive);
+      color: var(--destructive-foreground);
+      border-color: var(--destructive);
+    }
+    .btn-destructive:hover { opacity: 0.9; }
+
+    .btn-sm {
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+
+    /* Input */
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      max-width: 320px;
+    }
+
+    .input-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--foreground);
+    }
+
+    .input {
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--input);
+      border-radius: var(--radius-md);
+      background: var(--card);
+      color: var(--foreground);
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .input:focus {
+      border-color: var(--ring);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--ring) 20%, transparent);
+    }
+
+    .input-hint {
+      font-size: 11px;
+      color: var(--muted-foreground);
+    }
+
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--card);
+      color: var(--card-foreground);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+    }
+
+    .card-accent {
+      background: var(--accent);
+      color: var(--accent-foreground);
+      border-color: transparent;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-body {
+      font-size: 12px;
+      color: var(--muted-foreground);
+      line-height: 1.5;
+    }
+
+    .card-metric {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .card-delta {
+      font-size: 11px;
+      font-weight: 500;
+      color: #0F766E;
+    }
+
+    /* Badges */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-primary   { background: var(--primary);     color: var(--primary-foreground); }
+    .badge-secondary { background: var(--secondary);   color: var(--secondary-foreground); border: 1px solid var(--border); }
+    .badge-amber     { background: var(--amber-100);   color: var(--amber-800); }
+    .badge-success   { background: #D1FAE5;             color: #065F46; }
+    .badge-warning   { background: var(--amber-100);   color: var(--amber-700); }
+    .badge-error     { background: #FEE2E2;             color: #991B1B; }
+    .badge-neutral   { background: var(--stone-200);   color: var(--stone-700); }
+
+    /* Status dots */
+    .status-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-active    { background: #10B981; }
+    .dot-pending   { background: var(--amber-500); }
+    .dot-error     { background: #EF4444; }
+    .dot-inactive  { background: var(--stone-400); }
+    .dot-info      { background: #3B82F6; }
+
+    /* Chart color bar */
+    .chart-colors {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .chart-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: var(--muted-foreground);
+    }
+
+    .chart-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       SPACING
+    ============================================================ */
+    .spacing-scale {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .spacing-bar {
+      background: var(--primary);
+      height: 20px;
+      border-radius: 3px;
+      opacity: 0.85;
+      flex-shrink: 0;
+    }
+
+    .spacing-label {
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: var(--muted-foreground);
+      width: 32px;
+    }
+
+    .spacing-note {
+      font-size: 11px;
+      color: var(--muted-foreground);
+    }
+
+    /* Radius */
+    .radius-grid {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .radius-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .radius-box {
+      width: 56px;
+      height: 56px;
+      background: var(--primary);
+      opacity: 0.85;
+    }
+
+    .radius-label {
+      font-size: 10px;
+      font-family: 'DM Mono', monospace;
+      color: var(--muted-foreground);
+      text-align: center;
+    }
+
+    .radius-value {
+      font-size: 9px;
+      color: var(--muted-foreground);
+      text-align: center;
+    }
+
+    /* ============================================================
+       ICONS
+    ============================================================ */
+    .icon-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .icon-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-samples {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .icon-label {
+      font-size: 10px;
+      color: var(--muted-foreground);
+      font-family: 'DM Mono', monospace;
+      text-align: center;
+    }
+
+    /* ============================================================
+       MOTION TABLE
+    ============================================================ */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    th {
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      background: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+    th:last-child  { border-radius: 0 var(--radius-sm) 0 0; }
+
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--foreground);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    tr:hover td { background: var(--muted); }
+
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    code {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      background: var(--muted);
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: var(--foreground);
+    }
+
+    .token-col  { width: 200px; }
+    .prim-col   { width: 160px; }
+    .hex-col    { width: 110px; }
+
+    .hex-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hex-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       DARK MODE TRANSITION
+    ============================================================ */
+    body, .card, .swatch-info, .palette-label, th, td, .input {
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- =========================================================
+         BRAND HEADER
+    ========================================================= -->
+    <header class="brand-header">
+      <div class="brand-identity">
+        <div class="brand-logo">
+          <!-- Inline Logo.svg — color: var(--primary) via currentColor -->
+          <svg width="125" height="28" viewBox="0 0 125 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M59.9256 15.7992L56.9108 23.0945H62.8731L64.8303 28L50.1188 27.9781L57.5075 9.80957L59.9256 15.7992Z" fill="currentColor"/>
+            <path d="M72.1381 27.9781H66.1059L58.912 10.1062C58.877 10.0191 58.8458 9.92863 58.8146 9.83555C58.6604 9.35087 58.5578 8.85143 58.5101 8.34531C58.3625 7.09726 58.4997 5.83139 58.9106 4.64297L58.9847 4.46523L60.765 0L72.1381 27.9781Z" fill="currentColor"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.46013 6.64453C7.33746 6.61468 8.2137 6.73247 9.05103 6.99453C9.66366 7.21143 10.2301 7.5417 10.7202 7.9666C11.248 8.43867 11.681 9.00605 11.9958 9.63867C12.325 10.301 12.4921 11.0314 12.4841 11.7701C12.4857 12.3923 12.3561 13.0079 12.1042 13.5775C11.9024 14.0711 11.6185 14.5279 11.2634 14.927C12.1267 15.3534 12.844 16.0241 13.3249 16.8547C13.8508 17.7319 14.1233 18.7375 14.1122 19.7586C14.119 20.5344 13.9573 21.3026 13.6376 22.0104C13.3313 22.6879 12.9034 23.3055 12.3757 23.8314C11.8176 24.3749 11.1518 24.7975 10.4212 25.0729C9.4543 25.4091 8.43309 25.5642 7.40926 25.5309H0V6.6459L6.46013 6.64453ZM3.66485 22.2934H7.32833C7.84488 22.3123 8.36044 22.2342 8.84804 22.0637C9.19696 21.9316 9.51247 21.7243 9.77111 21.4566C10.2073 20.9862 10.45 20.3697 10.45 19.7299C10.4499 19.0902 10.2073 18.4734 9.77111 18.0031C9.51231 17.736 9.19667 17.5295 8.84804 17.3975C8.36043 17.2271 7.84483 17.149 7.32833 17.1678H3.66485V22.2934ZM3.66485 13.9275H6.24342C6.68559 13.9493 7.12755 13.8853 7.54504 13.7389C7.81772 13.6242 8.06607 13.4596 8.27746 13.2535C8.44246 13.07 8.57581 12.86 8.67111 12.6328C8.76948 12.4027 8.82054 12.1555 8.82061 11.9055C8.82061 11.6552 8.76962 11.4071 8.67111 11.1768C8.57565 10.9497 8.44231 10.7397 8.27746 10.5561C8.06602 10.3501 7.81761 10.1855 7.54504 10.0707C7.23172 9.96094 6.90462 9.89774 6.57397 9.88203H3.66485V13.9275Z" fill="currentColor"/>
+            <path d="M124.73 9.88477L116.994 9.8834V13.7963H122.829V17.0338H116.994V22.2947H125V25.5322H113.331V6.6459H124.73V9.88477Z" fill="currentColor"/>
+            <path d="M31.2514 22.2934H39.2573V25.5309H27.5879V6.6459H31.2514V22.2934Z" fill="currentColor"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M89.409 6.6418C90.6995 6.61297 91.9875 6.76711 93.2343 7.0998C94.21 7.37877 95.129 7.8264 95.9486 8.42187C97.1226 9.28328 98.073 10.4115 98.7179 11.7127C99.3786 13.076 99.7218 14.5703 99.7218 16.0836C99.7218 17.5969 99.3786 19.0912 98.7179 20.4545C98.0733 21.7559 97.1228 22.8841 95.9486 23.7453C95.1293 24.3414 94.2102 24.789 93.2343 25.0674C91.9876 25.4003 90.6995 25.5544 89.409 25.5254H83.4385V6.6459L89.409 6.6418ZM89.8163 9.8834H87.1033V22.2934H90.188C91.0543 22.2716 91.9093 22.084 92.7062 21.7396C93.4765 21.3834 94.1515 20.8508 94.6744 20.1852C95.1184 19.6272 95.463 18.997 95.6922 18.323C95.9087 17.6925 96.0305 17.0341 96.0543 16.3693L96.0584 16.0918C96.0633 15.3304 95.9395 14.573 95.6922 13.8523C95.4629 13.1786 95.1184 12.548 94.6744 11.9902C94.1514 11.325 93.4762 10.7921 92.7062 10.4357C91.7956 10.0427 90.8086 9.85438 89.8163 9.8834Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="brand-meta">
+          <div class="brand-tagline">Design System Reference · Precise, warm, data-first</div>
+        </div>
+      </div>
+      <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        Toggle dark mode
+      </button>
+    </header>
+
+    <!-- =========================================================
+         1. COLOR SYSTEM — SEMANTIC
+    ========================================================= -->
+    <section>
+      <div class="section-label">Color System</div>
+
+      <h2>Semantic tokens — light mode</h2>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F5F3F0;border-bottom:1px solid #DDD9D3;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--background</div>
+            <div class="swatch-value">#F5F3F0</div>
+            <div class="swatch-usage">Page background</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1C1917;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--foreground</div>
+            <div class="swatch-value">#1C1917</div>
+            <div class="swatch-usage">Primary text</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #DDD9D3;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--card</div>
+            <div class="swatch-value">#FFFFFF</div>
+            <div class="swatch-usage">Card surfaces</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#92400E;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--primary</div>
+            <div class="swatch-value">#92400E</div>
+            <div class="swatch-usage">Buttons, links, actions</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FEF3C7;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--primary-fg</div>
+            <div class="swatch-value">#FEF3C7</div>
+            <div class="swatch-usage">Text on primary</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#EEEBE6;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--secondary</div>
+            <div class="swatch-value">#EEEBE6</div>
+            <div class="swatch-usage">Secondary buttons</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#EEEBE6;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--muted</div>
+            <div class="swatch-value">#EEEBE6</div>
+            <div class="swatch-usage">Subtle backgrounds</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#78716C;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--muted-fg</div>
+            <div class="swatch-value">#78716C</div>
+            <div class="swatch-usage">Placeholder, captions</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FEF3C7;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--accent</div>
+            <div class="swatch-value">#FEF3C7</div>
+            <div class="swatch-usage">Highlights, tags</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#DDD9D3;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--border</div>
+            <div class="swatch-value">#DDD9D3</div>
+            <div class="swatch-usage">Dividers, outlines</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#D97706;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--ring</div>
+            <div class="swatch-value">#D97706</div>
+            <div class="swatch-usage">Focus ring</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#DC2626;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--destructive</div>
+            <div class="swatch-value">#DC2626</div>
+            <div class="swatch-usage">Errors, danger</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Data visualisation tokens</h2>
+      <div class="chart-colors">
+        <div class="chart-chip"><div class="chart-dot" style="background:#D97706;"></div>--chart-1 · #D97706</div>
+        <div class="chart-chip"><div class="chart-dot" style="background:#0F766E;"></div>--chart-2 · #0F766E</div>
+        <div class="chart-chip"><div class="chart-dot" style="background:#7C3AED;"></div>--chart-3 · #7C3AED</div>
+        <div class="chart-chip"><div class="chart-dot" style="background:#DC2626;"></div>--chart-4 · #DC2626</div>
+        <div class="chart-chip"><div class="chart-dot" style="background:#78716C;"></div>--chart-5 · #78716C</div>
+      </div>
+
+      <h2>Dark mode semantic tokens</h2>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1C1917;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--background</div>
+            <div class="swatch-value">#1C1917</div>
+            <div class="swatch-usage">Page background</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F5F5F4;border-bottom:1px solid #44403C;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--foreground</div>
+            <div class="swatch-value">#F5F5F4</div>
+            <div class="swatch-usage">Primary text</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#292524;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--card</div>
+            <div class="swatch-value">#292524</div>
+            <div class="swatch-usage">Card surfaces</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F59E0B;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--primary</div>
+            <div class="swatch-value">#F59E0B</div>
+            <div class="swatch-usage">Buttons, links (dark)</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#44403C;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--muted</div>
+            <div class="swatch-value">#44403C</div>
+            <div class="swatch-usage">Subtle surfaces (dark)</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#78350F;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">--accent</div>
+            <div class="swatch-value">#78350F</div>
+            <div class="swatch-usage">Highlights (dark)</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Primitive scales</h2>
+
+      <div class="palette-section-title">Stone — neutrals</div>
+      <div class="palette-row">
+        <div class="palette-stop"><div class="palette-color" style="background:#FAFAF9;"></div><div class="palette-label">50</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#F5F5F4;"></div><div class="palette-label">100</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#E7E5E4;"></div><div class="palette-label">200</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#D6D3D1;"></div><div class="palette-label">300</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#A8A29E;"></div><div class="palette-label">400</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#78716C;"></div><div class="palette-label">500</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#57534E;"></div><div class="palette-label">600</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#44403C;"></div><div class="palette-label">700</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#292524;"></div><div class="palette-label">800</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#1C1917;"></div><div class="palette-label">900</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#0C0A09;"></div><div class="palette-label">950</div></div>
+      </div>
+
+      <div class="palette-section-title">Amber — brand accent</div>
+      <div class="palette-row">
+        <div class="palette-stop"><div class="palette-color" style="background:#FFFBEB;"></div><div class="palette-label">50</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#FEF3C7;"></div><div class="palette-label">100</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#FDE68A;"></div><div class="palette-label">200</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#FCD34D;"></div><div class="palette-label">300</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#FBBF24;"></div><div class="palette-label">400</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#F59E0B;"></div><div class="palette-label">500</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#D97706;"></div><div class="palette-label">600</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#B45309;"></div><div class="palette-label">700</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#92400E;"></div><div class="palette-label">800 ★</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#78350F;"></div><div class="palette-label">900</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#451A03;"></div><div class="palette-label">950</div></div>
+      </div>
+
+      <div class="palette-section-title">Warm — surface tints</div>
+      <div class="palette-row" style="max-width:320px;">
+        <div class="palette-stop"><div class="palette-color" style="background:#F5F3F0;"></div><div class="palette-label">50 ★</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#EEEBE6;"></div><div class="palette-label">100</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#DDD9D3;"></div><div class="palette-label">200</div></div>
+        <div class="palette-stop"><div class="palette-color" style="background:#C9C4BC;"></div><div class="palette-label">300</div></div>
+      </div>
+      <p style="font-size:10px;color:var(--muted-foreground);margin-top:6px;">★ = used as semantic token in light mode</p>
+    </section>
+
+    <!-- =========================================================
+         2. TYPOGRAPHY
+    ========================================================= -->
+    <section>
+      <div class="section-label">Typography — DM Sans</div>
+      <div class="type-scale">
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-role">Display</div>
+            <div class="type-spec">36px / 700 / -0.02em</div>
+          </div>
+          <div class="type-sample" style="font-size:36px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;">Compliance Overview</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-role">Heading 1</div>
+            <div class="type-spec">28px / 700 / -0.015em</div>
+          </div>
+          <div class="type-sample" style="font-size:28px;font-weight:700;letter-spacing:-0.015em;line-height:1.2;">Risk Dashboard</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-role">Heading 2</div>
+            <div class="type-spec">22px / 600 / -0.01em</div>
+          </div>
+          <div class="type-sample" style="font-size:22px;font-weight:600;letter-spacing:-0.01em;line-height:1.25;">Audit Trail Summary</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-role">Heading 3</div>
+            <div class="type-spec">17px / 600 / -0.005em</div>
+          </div>
+          <div class="type-sample" style="font-size:17px;font-weight:600;letter-spacing:-0.005em;line-height:1.3;">Open Issues by Severity</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-role">Body Large</div>
+            <div class="type-spec">15px / 400 / 0</div>
+          </div>
+          <div class="type-sample" style="font-size:15px;font-weight:400;line-height:1.6;">Review the flagged items before the next audit cycle. All critical findings require sign-off within 48 hours.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-role">Body</div>
+            <div class="type-spec">14px / 400 / 0</div>
+          </div>
+          <div class="type-sample" style="font-size:14px;font-weight:400;line-height:1.5;">Default body text for descriptions, labels, and general content throughout the dashboard. Optimised for information density.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-role">Label / UI</div>
+            <div class="type-spec">12px / 500 / +0.01em</div>
+          </div>
+          <div class="type-sample" style="font-size:12px;font-weight:500;letter-spacing:0.01em;line-height:1.4;">Form labels · Table headers · Navigation items</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-role">Caption</div>
+            <div class="type-spec">11px / 400 / +0.02em</div>
+          </div>
+          <div class="type-sample" style="font-size:11px;font-weight:400;letter-spacing:0.02em;line-height:1.4;color:var(--muted-foreground);">Metadata · Timestamps · Helper text · Footnotes</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-role">Overline</div>
+            <div class="type-spec">10px / 600 / +0.1em / CAPS</div>
+          </div>
+          <div class="type-sample" style="font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;line-height:1.4;color:var(--muted-foreground);">Section labels · Category tags</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta">
+            <div class="type-role">Mono</div>
+            <div class="type-spec">DM Mono · 12px / 400</div>
+          </div>
+          <div class="type-sample" style="font-family:'DM Mono',monospace;font-size:12px;font-weight:400;line-height:1.5;">REF-2024-0047 · #92400E · var(--primary)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. COMPONENTS
+    ========================================================= -->
+    <section>
+      <div class="section-label">Components</div>
+
+      <div class="component-row">
+        <div class="component-label">Buttons</div>
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-outline">Outline</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-destructive">Destructive</button>
+        <button class="btn btn-primary btn-sm">Small</button>
+      </div>
+
+      <div class="component-row" style="align-items:flex-start;margin-top:16px;">
+        <div class="component-label" style="padding-top:22px;">Input</div>
+        <div class="input-group">
+          <label class="input-label">Reference number</label>
+          <input class="input" type="text" placeholder="e.g. REF-2024-0047">
+          <div class="input-hint">Enter the audit reference ID to look up.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;margin-bottom:8px;">
+        <div class="component-label" style="margin-bottom:12px;">Cards</div>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title">Risk Register</div>
+            <div class="card-body">Track, assess, and manage risk items across all business units and regulatory frameworks.</div>
+          </div>
+          <div class="card card-accent">
+            <div class="card-title">Upcoming Deadline</div>
+            <div class="card-body">SOC 2 Type II audit submission due in 14 days. Three items require remediation.</div>
+          </div>
+          <div class="card">
+            <div class="card-metric">94.2%</div>
+            <div class="card-delta">▲ 1.8% from last quarter</div>
+            <div class="card-body" style="margin-top:6px;">Compliance score</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-row" style="margin-top:24px;">
+        <div class="component-label">Badges</div>
+        <div class="badge-row">
+          <span class="badge badge-primary">Primary</span>
+          <span class="badge badge-secondary">Secondary</span>
+          <span class="badge badge-amber">Amber</span>
+          <span class="badge badge-success">Compliant</span>
+          <span class="badge badge-warning">Pending</span>
+          <span class="badge badge-error">Critical</span>
+          <span class="badge badge-neutral">Archived</span>
+        </div>
+      </div>
+
+      <div class="component-row" style="margin-top:20px;">
+        <div class="component-label">Status</div>
+        <div class="status-row">
+          <div class="status-item"><div class="status-dot dot-active"></div>Active</div>
+          <div class="status-item"><div class="status-dot dot-pending"></div>Pending</div>
+          <div class="status-item"><div class="status-dot dot-error"></div>Overdue</div>
+          <div class="status-item"><div class="status-dot dot-inactive"></div>Closed</div>
+          <div class="status-item"><div class="status-dot dot-info"></div>In Review</div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;">
+        <div class="component-label" style="margin-bottom:12px;">Icons — Lucide style</div>
+        <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
+          <div class="icon-group">
+            <div class="icon-samples">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div class="icon-label">18px / nav</div>
+          </div>
+          <div class="icon-group">
+            <div class="icon-samples">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </div>
+            <div class="icon-label">16px / inline</div>
+          </div>
+          <div class="icon-group">
+            <div class="icon-samples">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="icon-label">14px / compact</div>
+          </div>
+        </div>
+        <p style="font-size:10px;color:var(--muted-foreground);margin-top:10px;">Lucide React · stroke-width 1.5 · no fill · never swap for solid icons</p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. SPACING & RADIUS
+    ========================================================= -->
+    <section>
+      <div class="section-label">Spacing & Radius</div>
+
+      <h2>Spacing scale</h2>
+      <div class="spacing-scale">
+        <div class="spacing-row"><div class="spacing-label">4px</div><div class="spacing-bar" style="width:4px;"></div><div class="spacing-note">Tight — icon gap, inline elements</div></div>
+        <div class="spacing-row"><div class="spacing-label">8px</div><div class="spacing-bar" style="width:8px;"></div><div class="spacing-note">Small — badge padding, row gap</div></div>
+        <div class="spacing-row"><div class="spacing-label">12px</div><div class="spacing-bar" style="width:12px;"></div><div class="spacing-note">Base — grid gap, form spacing</div></div>
+        <div class="spacing-row"><div class="spacing-label">16px</div><div class="spacing-bar" style="width:16px;"></div><div class="spacing-note">Medium — card padding, section gap</div></div>
+        <div class="spacing-row"><div class="spacing-label">24px</div><div class="spacing-bar" style="width:24px;"></div><div class="spacing-note">Large — sidebar item padding</div></div>
+        <div class="spacing-row"><div class="spacing-label">32px</div><div class="spacing-bar" style="width:32px;"></div><div class="spacing-note">XL — page padding, major gaps</div></div>
+        <div class="spacing-row"><div class="spacing-label">48px</div><div class="spacing-bar" style="width:48px;"></div><div class="spacing-note">XXL — section dividers, header height</div></div>
+      </div>
+
+      <h2>Border radius</h2>
+      <div class="radius-grid">
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:calc(0.5rem - 2px);"></div>
+          <div class="radius-label">--radius-sm</div>
+          <div class="radius-value">6px · inputs, chips</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:0.5rem;"></div>
+          <div class="radius-label">--radius-md</div>
+          <div class="radius-value">8px · buttons, badges</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:calc(0.5rem + 4px);"></div>
+          <div class="radius-label">--radius-lg</div>
+          <div class="radius-value">12px · cards, panels</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius:calc(0.5rem + 8px);"></div>
+          <div class="radius-label">--radius-xl</div>
+          <div class="radius-value">16px · modals, drawers</div>
+        </div>
+      </div>
+      <p style="font-size:10px;color:var(--muted-foreground);margin-top:12px;">Base --radius is 0.5rem (8px) — sharper than other design systems, reflecting analytical precision.</p>
+    </section>
+
+    <!-- =========================================================
+         5. MOTION
+    ========================================================= -->
+    <section>
+      <div class="section-label">Motion</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Duration</th>
+              <th>Easing</th>
+              <th>Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Standard</td>
+              <td><code>150ms</code></td>
+              <td>ease-out</td>
+              <td>Hover states, button press, badge colour change</td>
+            </tr>
+            <tr>
+              <td>Enter</td>
+              <td><code>200ms</code></td>
+              <td>ease-out</td>
+              <td>Panel open, modal appear, dropdown expand</td>
+            </tr>
+            <tr>
+              <td>Exit</td>
+              <td><code>120ms</code></td>
+              <td>ease-out</td>
+              <td>Panel close, modal dismiss, tooltip hide</td>
+            </tr>
+            <tr>
+              <td>Skeleton</td>
+              <td><code>1500ms</code></td>
+              <td>ease-in-out</td>
+              <td>Loading shimmer — loop indefinitely</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11px;color:var(--muted-foreground);margin-top:10px;">Rules: ease-out only. No bounce, no spring. Motion should be invisible — users notice data, not animation.</p>
+    </section>
+
+    <!-- =========================================================
+         6. TOKEN ARCHITECTURE
+    ========================================================= -->
+    <section>
+      <div class="section-label">Token Architecture — Developer Reference</div>
+      <p style="font-size:12px;color:var(--muted-foreground);margin-bottom:16px;">Three-layer system: L1 primitives (hex) → L2 semantic roles → L3 Tailwind utility classes. Never use L1 hex values directly in components.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th class="token-col">Semantic token (L2)</th>
+              <th class="prim-col">Primitive (L1)</th>
+              <th class="hex-col">Light hex</th>
+              <th class="hex-col">Dark hex</th>
+              <th>Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>--background</code></td>
+              <td><code>--warm-50</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#F5F3F0;border:1px solid #ccc;"></div>#F5F3F0</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#1C1917;"></div>#1C1917</div></td>
+              <td>Page / layout background</td>
+            </tr>
+            <tr>
+              <td><code>--foreground</code></td>
+              <td><code>--stone-900</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#1C1917;"></div>#1C1917</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#F5F5F4;border:1px solid #ccc;"></div>#F5F5F4</div></td>
+              <td>Body text, headings</td>
+            </tr>
+            <tr>
+              <td><code>--card</code></td>
+              <td>—</td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#FFFFFF;border:1px solid #ccc;"></div>#FFFFFF</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#292524;"></div>#292524</div></td>
+              <td>Card, panel, dialog surfaces</td>
+            </tr>
+            <tr>
+              <td><code>--primary</code></td>
+              <td><code>--amber-800</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#92400E;"></div>#92400E</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#F59E0B;"></div>#F59E0B</div></td>
+              <td>CTA buttons, active nav, links</td>
+            </tr>
+            <tr>
+              <td><code>--primary-foreground</code></td>
+              <td><code>--amber-100</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#FEF3C7;"></div>#FEF3C7</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#1C1917;"></div>#1C1917</div></td>
+              <td>Text on primary bg</td>
+            </tr>
+            <tr>
+              <td><code>--secondary</code></td>
+              <td><code>--warm-100</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#EEEBE6;border:1px solid #ccc;"></div>#EEEBE6</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#44403C;"></div>#44403C</div></td>
+              <td>Secondary buttons, alt surfaces</td>
+            </tr>
+            <tr>
+              <td><code>--muted</code></td>
+              <td><code>--warm-100</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#EEEBE6;border:1px solid #ccc;"></div>#EEEBE6</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#44403C;"></div>#44403C</div></td>
+              <td>Subtle backgrounds, table rows</td>
+            </tr>
+            <tr>
+              <td><code>--muted-foreground</code></td>
+              <td><code>--stone-500</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#78716C;"></div>#78716C</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#A8A29E;"></div>#A8A29E</div></td>
+              <td>Placeholders, captions, metadata</td>
+            </tr>
+            <tr>
+              <td><code>--accent</code></td>
+              <td><code>--amber-100</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#FEF3C7;"></div>#FEF3C7</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#78350F;"></div>#78350F</div></td>
+              <td>Hover tint, highlighted rows</td>
+            </tr>
+            <tr>
+              <td><code>--border</code></td>
+              <td><code>--warm-200</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#DDD9D3;"></div>#DDD9D3</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#44403C;"></div>#44403C</div></td>
+              <td>Dividers, input outlines</td>
+            </tr>
+            <tr>
+              <td><code>--ring</code></td>
+              <td><code>--amber-600</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#D97706;"></div>#D97706</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#F59E0B;"></div>#F59E0B</div></td>
+              <td>Focus ring on interactive elements</td>
+            </tr>
+            <tr>
+              <td><code>--destructive</code></td>
+              <td>—</td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#DC2626;"></div>#DC2626</div></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#EF4444;"></div>#EF4444</div></td>
+              <td>Error states, delete actions</td>
+            </tr>
+            <tr>
+              <td><code>--chart-1</code></td>
+              <td><code>--amber-600</code></td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#D97706;"></div>#D97706</div></td>
+              <td colspan="1">—</td>
+              <td>Primary data series</td>
+            </tr>
+            <tr>
+              <td><code>--chart-2</code></td>
+              <td>—</td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#0F766E;"></div>#0F766E</div></td>
+              <td>—</td>
+              <td>Secondary data series</td>
+            </tr>
+            <tr>
+              <td><code>--chart-3</code></td>
+              <td>—</td>
+              <td><div class="hex-chip"><div class="hex-dot" style="background:#7C3AED;"></div>#7C3AED</div></td>
+              <td>—</td>
+              <td>Tertiary data series</td>
+            </tr>
+            <tr>
+              <td><code>--radius</code></td>
+              <td>—</td>
+              <td colspan="2">0.5rem (8px)</td>
+              <td>Base radius — all variants derive from this</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 style="margin-top:28px;">Tailwind usage (L3)</h2>
+      <p style="font-size:12px;color:var(--muted-foreground);margin-bottom:12px;">Semantic tokens map directly to Tailwind utilities via <code>@theme inline</code> in globals.css.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>CSS token</th>
+              <th>Tailwind class</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>--background</code></td>
+              <td><code>bg-background</code></td>
+              <td>Page body background</td>
+            </tr>
+            <tr>
+              <td><code>--primary</code></td>
+              <td><code>bg-primary</code> / <code>text-primary</code></td>
+              <td>Primary button, active link</td>
+            </tr>
+            <tr>
+              <td><code>--muted-foreground</code></td>
+              <td><code>text-muted-foreground</code></td>
+              <td>Placeholder, caption text</td>
+            </tr>
+            <tr>
+              <td><code>--border</code></td>
+              <td><code>border-border</code></td>
+              <td>Applied globally via <code>* { @apply border-border }</code></td>
+            </tr>
+            <tr>
+              <td><code>--radius-lg</code></td>
+              <td><code>rounded-lg</code></td>
+              <td>Cards and panel containers</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. DESIGN RULES SUMMARY
+    ========================================================= -->
+    <section>
+      <div class="section-label">Non-negotiables</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Rule</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Typeface</strong></td>
+              <td>DM Sans only. Never substitute Inter, Geist, or any other font.</td>
+            </tr>
+            <tr>
+              <td><strong>Components</strong></td>
+              <td>shadcn/ui only. Never write raw HTML buttons, inputs, or selects.</td>
+            </tr>
+            <tr>
+              <td><strong>Icons</strong></td>
+              <td>Lucide React only. strokeWidth 1.5. Never use filled icons or other icon sets.</td>
+            </tr>
+            <tr>
+              <td><strong>Tokens</strong></td>
+              <td>Semantic tokens only in JSX. Never hard-code hex, rgb, or L1 primitive names.</td>
+            </tr>
+            <tr>
+              <td><strong>Dark mode</strong></td>
+              <td>Toggle via <code>.dark</code> class on <code>&lt;body&gt;</code>. Both modes fully supported.</td>
+            </tr>
+            <tr>
+              <td><strong>Data density</strong></td>
+              <td>Compact layout is intentional. Default body 14px, compact 12px. Don't inflate spacing.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
