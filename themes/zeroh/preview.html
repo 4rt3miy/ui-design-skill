@@ -93,7 +93,7 @@
       transition: background 200ms ease-out, color 200ms ease-out;
     }
 
-    .page { max-width: 960px; margin: 0 auto; padding: 64px 32px; }
+    .page { max-width: 960px; margin: 0 auto; padding: 88px 32px 64px; }
     .section { margin-bottom: 80px; }
     .section-title {
       font-size: 11px;
@@ -285,9 +285,53 @@
     .token-group-label td { font-size: 10px; font-family: var(--font-mono); color: var(--muted-foreground); background: var(--background) !important; padding: 8px 14px 4px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
 
     code { font-family: var(--font-mono); font-size: 12px; background: var(--muted); padding: 2px 6px; border-radius: 4px; color: var(--primary); }
+
+    /* ── Site nav ── */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 44px;
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 2px;
+      z-index: 100;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+    .site-nav a {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #666;
+      text-decoration: none;
+      transition: background 0.12s, color 0.12s;
+    }
+    .site-nav a:hover { background: #f4f4f4; color: #111; }
+    .site-nav a.active { background: #f0f0f0; color: #111; }
+    .nav-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .nav-divider { width: 1px; height: 16px; background: #e5e5e5; margin: 0 4px; }
   </style>
 </head>
 <body>
+  <nav class="site-nav">
+    <a href="../ali/preview.html">
+      <span class="nav-dot" style="background:#1F5B46;"></span>Ali
+    </a>
+    <div class="nav-divider"></div>
+    <a href="../zeroh/preview.html" class="active">
+      <span class="nav-dot" style="background:#0E8F3C;"></span>Zeroh
+    </a>
+    <div class="nav-divider"></div>
+    <a href="../grc/preview.html">
+      <span class="nav-dot" style="background:#92400E;"></span>Blade Labs GRC
+    </a>
+  </nav>
 <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">Toggle Dark Mode</button>
 
 <div class="page">
