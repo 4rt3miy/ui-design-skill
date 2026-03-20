@@ -2,9 +2,9 @@
 set -e
 
 REPO="https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main"
-THEME="conversational"
+THEME="ali"
 
-echo "Setting up Conversational theme..."
+echo "Setting up Ali design system..."
 
 # Install shadcn
 npx shadcn@latest init -d
@@ -33,7 +33,7 @@ const crimsonPro = Crimson_Pro({
 
 export const metadata: Metadata = {
   title: "My App",
-  description: "Built with the Conversational design system",
+  description: "Built with the Ali design system",
 };
 
 export default function RootLayout({

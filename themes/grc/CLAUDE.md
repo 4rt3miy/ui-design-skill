@@ -1,6 +1,6 @@
 # Design System
 
-This project uses the **Analytical** theme.
+This project uses the **Blade Labs GRC** design system.
 
 ## Before any UI work
 

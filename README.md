@@ -10,24 +10,24 @@ You build prototypes and apps with Claude Code. You care about how things look b
 
 When active, this skill gives Claude a complete design system to work from. Every component, page, and layout it generates follows consistent rules for typography, color, spacing, and motion. You never see any of that. You just get UI that looks like someone designed it.
 
-- **Three built-in themes** matched to different product types
+- **Three brand design systems** — Ali, Zeroh, and Blade Labs GRC
 - Consistent components and icons across everything it builds
 
-## Themes
+## Design systems
 
-There are three themes. Claude picks the right one based on what you're building — you can always tell it to switch.
+There are three brand design systems. Claude picks the right one based on what you're building — you can always tell it to switch.
 
-### Analytical
-> Dashboards, internal tools, data products, admin panels
+### Blade Labs GRC
+> Dashboards, internal tools, compliance, admin panels
 
 Precise and warm. DM Sans typeface, warm stone neutrals with amber accents. Prioritises information density and scannability.
 
-### Conversational
-> AI assistants, document tools, knowledge bases, reading-heavy apps
+### Ali
+> AI assistants, document tools, knowledge bases, Shariah advisory
 
 Scholarly and calm. Crimson Pro serif typeface, parchment background with forest green primary. Prioritises legibility and trust.
 
-### Vital
+### Zeroh
 > Health, wellness, consumer products, onboarding flows
 
 Organic and friendly. Quicksand typeface, clean white with fresh green accents. Prioritises warmth and approachability.
@@ -36,16 +36,16 @@ Organic and friendly. Quicksand typeface, clean white with fresh green accents. 
 
 | What you're building | Theme |
 |---|---|
-| Dashboards, data tools, admin panels | Analytical |
-| AI assistants, docs, knowledge bases | Conversational |
-| Health, wellness, consumer, onboarding | Vital |
+| Dashboards, data tools, compliance | Blade Labs GRC |
+| AI assistants, docs, knowledge bases | Ali |
+| Health, wellness, consumer, onboarding | Zeroh |
 
 Claude will confirm before generating anything:
-> *"Going with **Analytical** — data dashboard. Good?"*
+> *"Going with **Ali** — knowledge base. Good?"*
 
 Just say yes and it builds. If it picked wrong, tell it and it switches.
 
-> **Note:** Claude Code uses the word "theme" for its own dark/light color setting. To avoid confusion, say **"use the Conversational design system"** or **"switch to Analytical"** — not "change the theme".
+> **Note:** Claude Code uses the word "theme" for its own dark/light color setting. To avoid confusion, say **"use the Ali design system"** or **"switch to Blade Labs GRC"** — not "change the theme".
 
 ## Getting started
 
@@ -61,19 +61,19 @@ cd my-project
 
 **2. Run the setup for your chosen theme**
 
-Analytical — dashboards, data tools, admin panels:
+Blade Labs GRC — dashboards, compliance, admin panels:
 ```bash
-curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/analytical/setup.sh | bash
+curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/grc/setup.sh | bash
 ```
 
-Conversational — AI assistants, docs, knowledge bases:
+Ali — AI assistants, docs, knowledge bases:
 ```bash
-curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/conversational/setup.sh | bash
+curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/ali/setup.sh | bash
 ```
 
-Vital — health, wellness, consumer apps:
+Zeroh — health, wellness, consumer apps:
 ```bash
-curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/vital/setup.sh | bash
+curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/zeroh/setup.sh | bash
 ```
 
 **3. Open Claude Code and start prompting**

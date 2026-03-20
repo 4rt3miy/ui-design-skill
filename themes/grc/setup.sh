@@ -2,9 +2,9 @@
 set -e
 
 REPO="https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main"
-THEME="analytical"
+THEME="grc"
 
-echo "Setting up Analytical theme..."
+echo "Setting up Blade Labs GRC design system..."
 
 # Install shadcn
 npx shadcn@latest init -d
@@ -33,7 +33,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "My App",
-  description: "Built with the Analytical design system",
+  description: "Built with the Blade Labs GRC design system",
 };
 
 export default function RootLayout({
