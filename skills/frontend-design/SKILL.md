@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build, create, or design any frontend UI — including web components, pages, dashboards, apps, landing pages, React components, HTML/CSS layouts, admin panels, forms, or any visual interface. Also use when the user says "use Ali", "use Zeroh", "use Blade Labs GRC", "use GRC", "switch design system", or "apply the design system". Generates creative, polished code and UI that avoids generic AI aesthetics.
+description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build, create, or design any frontend UI — including web components, pages, dashboards, apps, landing pages, React components, HTML/CSS layouts, admin panels, forms, or any visual interface. Also use when the user asks to generate marketing or PR collateral — social cards, announcement banners, LinkedIn images, presentation slides, or any static branded visual asset. Also use when the user says "use Ali", "use Zeroh", "use Blade Labs GRC", "use GRC", "switch design system", or "apply the design system". Generates creative, polished code and UI that avoids generic AI aesthetics.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -101,6 +101,33 @@ Interpret creatively and make unexpected choices that feel genuinely designed fo
 **IMPORTANT**: Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details. Elegance comes from executing the vision well.
 
 Remember: Claude is capable of extraordinary creative work. Don't hold back, show what can truly be created when thinking outside the box and committing fully to a distinctive vision.
+
+---
+
+## Collateral & Static Branded Assets
+
+When the request is for a **standalone visual** rather than a UI component or app page — social cards, announcement banners, LinkedIn images, event posters, PR assets — output a **single self-contained HTML file** with no external dependencies except Google Fonts.
+
+**Rules for collateral output:**
+- Skip the stack confirmation (no Next.js / shadcn question — it's always plain HTML)
+- Still confirm the brand: *"Going with **Blade Labs GRC** for this announcement card. Good?"*
+- Inline all CSS as a `<style>` block — no external stylesheets
+- Use Google Fonts CDN for the brand typeface
+- Inline the `Logo.svg` directly — do not use `<img src>` for the logo
+- Apply the brand's exact tokens: primary color, background, typography scale
+- Output at the requested dimensions via a fixed-size wrapper (e.g. `width:1200px; height:627px` for LinkedIn)
+- The file must open directly in Chrome with no build step
+
+**Common collateral sizes:**
+| Format | Dimensions |
+|---|---|
+| LinkedIn post image | 1200 × 627px |
+| Twitter/X card | 1200 × 675px |
+| Instagram square | 1080 × 1080px |
+| Presentation slide | 1920 × 1080px |
+| Email banner | 600 × 200px |
+
+**Figma handoff:** Users with the Figma MCP plugin can push the rendered HTML directly to Figma for final edits and export.
 
 ---
 
