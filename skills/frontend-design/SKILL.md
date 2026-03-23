@@ -134,6 +134,51 @@ These three states are the most commonly neglected in frontend work, and the mos
 
 ---
 
+## Brand Assets
+
+Every brand ships two SVG files. **Always use these — never create placeholder logos or inline text as a logo substitute.**
+
+| Brand | Logo (wordmark) | Icon (mark) |
+|---|---|---|
+| Ali | `themes/ali/assets/Logo.svg` | `themes/ali/assets/Icon.svg` |
+| Zeroh | `themes/zeroh/assets/Logo.svg` | `themes/zeroh/assets/Icon.svg` |
+| Blade Labs GRC | `themes/grc/assets/Logo.svg` | `themes/grc/assets/Icon.svg` |
+
+**When to use each:**
+- `Logo.svg` — full wordmark. Use in nav bars, page headers, login screens, marketing surfaces.
+- `Icon.svg` — compact mark. Use for favicons, avatar slots, mobile nav, small contexts (≤32px).
+
+**Critical: `currentColor` fill pattern**
+
+All SVG paths use `fill="currentColor"`. This means the SVG color is controlled entirely by the CSS `color` property of its container — **no SVG edits needed when the color changes**.
+
+```jsx
+// React: inline SVG inherits color from parent
+<div style={{ color: 'var(--primary)' }}>
+  {/* paste SVG here — it renders in --primary */}
+</div>
+
+// To show on dark surface:
+<div style={{ color: '#ffffff' }}>
+  {/* same SVG — now renders white */}
+</div>
+
+// Tailwind:
+<div className="text-primary">
+  {/* SVG renders in brand primary */}
+</div>
+```
+
+**In Next.js projects:** After `setup.sh` runs, assets are copied to `public/brand/`. Reference them as:
+- `/brand/Logo.svg` — for `<img src>` or CSS `url()`
+- Import and inline for `currentColor` control (recommended)
+
+**Never** hardcode a hex color directly on the SVG element. Always control color through CSS `color` on the wrapper.
+
+**Minimum sizes:** Logo ≥ 80px wide · Icon ≥ 16px · Icon typical UI size 32px
+
+---
+
 ## Bundled References
 
 Load these when operating in Path 2 (theme specified, no project files present).
@@ -147,3 +192,6 @@ Load these when operating in Path 2 (theme specified, no project files present).
 | `references/zeroh/globals.css` | Zeroh token values |
 | `references/grc/DESIGN.md` | Blade Labs GRC design system — typography, color, components |
 | `references/grc/globals.css` | Blade Labs GRC token values |
+| `themes/ali/assets/` | Ali brand SVGs (Logo.svg, Icon.svg) |
+| `themes/zeroh/assets/` | Zeroh brand SVGs (Logo.svg, Icon.svg) |
+| `themes/grc/assets/` | Blade Labs GRC brand SVGs (Logo.svg, Icon.svg) |
