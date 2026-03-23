@@ -12,6 +12,7 @@ When active, this skill gives Claude a complete design system to work from. Ever
 
 - **Three brand design systems** — Ali, Zeroh, and Blade Labs GRC
 - Consistent components and icons across everything it builds
+- **PR & marketing collateral** — generate branded social cards, announcement banners, and presentation assets as self-contained HTML, ready to push to Figma
 
 ## Design systems
 
@@ -120,3 +121,39 @@ alias claude='claude --plugin-dir ~/skills/ui-design-skill'
 ```
 
 Then just type `claude` as normal.
+
+---
+
+## Collateral & PR images
+
+Generate branded social cards, announcement banners, and presentation assets — no design tool needed.
+
+**1. Start a session with the skill loaded** (existing project path or any empty directory)
+
+**2. Prompt Claude:**
+```
+Generate a self-contained HTML announcement card for a new product launch.
+Use the Blade Labs GRC design system.
+The announcement is: "Blade Labs GRC now supports AI-powered risk scoring."
+Format: LinkedIn post image (1200×627px)
+```
+
+Claude confirms the brand, then outputs a single `.html` file using your exact tokens — correct logo, fonts, and colors. No build step.
+
+**3. Open in Chrome** — double-click the file to preview it at the correct dimensions.
+
+**4. Push to Figma** *(optional)* — if you have the Figma MCP plugin connected to Claude Code, ask:
+```
+Push this to Figma
+```
+The rendered design lands in your Figma file ready to edit and export.
+
+**Supported formats out of the box:**
+
+| Format | Size |
+|---|---|
+| LinkedIn post | 1200 × 627px |
+| Twitter / X card | 1200 × 675px |
+| Instagram square | 1080 × 1080px |
+| Presentation slide | 1920 × 1080px |
+| Email banner | 600 × 200px |
