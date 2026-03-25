@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zeroh — Design System Reference</title>
+  <title>Zeroh GRC — Design System Reference</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
   <style>
-    /* ─── L1 / L2 — Zeroh tokens (HSL format from globals.css) ── */
+    /* ─── L1 / L2 — Zeroh GRC tokens (HSL format from globals.css) ── */
     :root {
       --background-h: 0; --background-s: 0%; --background-l: 100%;
       --foreground-h: 225; --foreground-s: 16%; --foreground-l: 12%;
@@ -368,11 +369,11 @@
     </a>
     <div class="nav-divider"></div>
     <a href="../zeroh/preview.html" class="active">
-      <span class="nav-dot" style="background:#0E8F3C;"></span>Zeroh
+      <span class="nav-dot" style="background:#0E8F3C;"></span>Zeroh GRC
     </a>
     <div class="nav-divider"></div>
     <a href="../grc/preview.html">
-      <span class="nav-dot" style="background:#92400E;"></span>Blade Labs GRC
+      <span class="nav-dot" style="background:#92400E;"></span>Blade Labs Corporate
     </a>
   
     <button class="dark-toggle" id="dark-toggle" style="margin-left:auto;" onclick="var d=document.body.classList.toggle('dark');this.querySelector('.toggle-label').textContent=d?'Light':'Dark';this.querySelector('.toggle-icon').textContent=d?'&#9728;':'&#9790;'" aria-label="Toggle dark mode">
@@ -793,7 +794,7 @@
   <!-- Token Map -->
   <section class="section">
     <h2 class="section-title">Token Architecture — Developer Reference</h2>
-    <p style="font-size:13px;color:var(--muted-foreground);margin-bottom:16px;">Note: Zeroh uses HSL format. In components use <code>bg-primary</code>, <code>text-foreground</code> etc. — never raw HSL values.</p>
+    <p style="font-size:13px;color:var(--muted-foreground);margin-bottom:16px;">Note: Zeroh GRC uses HSL format. In components use <code>bg-primary</code>, <code>text-foreground</code> etc. — never raw HSL values.</p>
     <table class="token-table">
       <thead>
         <tr><th>Semantic Token</th><th>HSL Value</th><th>Approx Hex</th><th>Usage</th></tr>
@@ -825,7 +826,7 @@
   </section>
 
   <footer style="border-top:1px solid var(--border);padding-top:32px;color:var(--muted-foreground);font-size:13px;display:flex;justify-content:space-between;align-items:center;">
-    <span>Zeroh Design System · Blade Labs</span>
+    <span>Zeroh GRC Design System · Blade Labs</span>
     <span style="font-family:var(--font-mono);font-size:11px;">Quicksand · hsl(147,91%,33%) · #FFFFFF</span>
   </footer>
 </div>

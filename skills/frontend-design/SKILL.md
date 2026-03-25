@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build, create, or design any frontend UI — including web components, pages, dashboards, apps, landing pages, React components, HTML/CSS layouts, admin panels, forms, or any visual interface. Also use when the user asks to generate marketing or PR collateral — social cards, announcement banners, LinkedIn images, presentation slides, or any static branded visual asset. Also use when the user says "use Ali", "use Zeroh", "use Blade Labs GRC", "use GRC", "switch design system", or "apply the design system". Generates creative, polished code and UI that avoids generic AI aesthetics.
+description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build, create, or design any frontend UI — including web components, pages, dashboards, apps, landing pages, React components, HTML/CSS layouts, admin panels, forms, or any visual interface. Also use when the user asks to generate marketing or PR collateral — social cards, announcement banners, LinkedIn images, presentation slides, or any static branded visual asset. Also use when the user says "use Ali", "use Zeroh GRC", "use Blade Labs Corporate", "use GRC", "switch design system", or "apply the design system". Generates creative, polished code and UI that avoids generic AI aesthetics.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -20,8 +20,8 @@ If no `CLAUDE.md` exists, infer both the theme and the stack from the request, t
 
 **Brand inference:**
 - Reading-heavy, AI assistants, document tools, knowledge bases, Shariah → **Ali**
-- Health, wellness, consumer products, onboarding → **Zeroh**
-- Dashboards, internal tools, data products, admin panels, compliance, GRC → **Blade Labs GRC**
+- Health, wellness, consumer products, onboarding → **Zeroh GRC**
+- Dashboards, internal tools, data products, admin panels, compliance, GRC → **Blade Labs Corporate**
 
 If no brand signal is present and no `CLAUDE.md` exists, ask the user which brand to use before building.
 
@@ -32,7 +32,7 @@ If no brand signal is present and no `CLAUDE.md` exists, ask the user which bran
 
 When both are inferred, announce both together before generating:
 
-> *"Going with **Blade Labs GRC** + **React (no shadcn)** — data dashboard, no shadcn detected. Good?"*
+> *"Going with **Blade Labs Corporate** + **React (no shadcn)** — data dashboard, no shadcn detected. Good?"*
 
 If only brand is clear but stack is ambiguous, ask once alongside the brand confirmation:
 
@@ -110,7 +110,7 @@ When the request is for a **standalone visual** rather than a UI component or ap
 
 **Rules for collateral output:**
 - Skip the stack confirmation (no Next.js / shadcn question — it's always plain HTML)
-- Still confirm the brand: *"Going with **Blade Labs GRC** for this announcement card. Good?"*
+- Still confirm the brand: *"Going with **Blade Labs Corporate** for this announcement card. Good?"*
 - Inline all CSS as a `<style>` block — no external stylesheets
 - Use Google Fonts CDN for the brand typeface
 - Inline the `Logo.svg` directly — do not use `<img src>` for the logo
@@ -168,8 +168,8 @@ Every brand ships two SVG files. **Always use these — never create placeholder
 | Brand | Logo (wordmark) | Icon (mark) |
 |---|---|---|
 | Ali | `themes/ali/assets/Logo.svg` | `themes/ali/assets/Icon.svg` |
-| Zeroh | `themes/zeroh/assets/Logo.svg` | `themes/zeroh/assets/Icon.svg` |
-| Blade Labs GRC | `themes/grc/assets/Logo.svg` | `themes/grc/assets/Icon.svg` |
+| Zeroh GRC | `themes/zeroh/assets/Logo.svg` | `themes/zeroh/assets/Icon.svg` |
+| Blade Labs Corporate | `themes/grc/assets/Logo.svg` | `themes/grc/assets/Icon.svg` |
 
 **When to use each:**
 - `Logo.svg` — full wordmark. Use in nav bars, page headers, login screens, marketing surfaces.
@@ -215,10 +215,10 @@ Load these when operating in Path 2 (theme specified, no project files present).
 | `references/core/PRINCIPLES.md` | Always, for any theme — shared rules |
 | `references/ali/DESIGN.md` | Ali design system — typography, color, components |
 | `references/ali/globals.css` | Ali token values |
-| `references/zeroh/DESIGN.md` | Zeroh design system — typography, color, components |
-| `references/zeroh/globals.css` | Zeroh token values |
-| `references/grc/DESIGN.md` | Blade Labs GRC design system — typography, color, components |
-| `references/grc/globals.css` | Blade Labs GRC token values |
+| `references/zeroh/DESIGN.md` | Zeroh GRC design system — typography, color, components |
+| `references/zeroh/globals.css` | Zeroh GRC token values |
+| `references/grc/DESIGN.md` | Blade Labs Corporate design system — typography, color, components |
+| `references/grc/globals.css` | Blade Labs Corporate token values |
 | `themes/ali/assets/` | Ali brand SVGs (Logo.svg, Icon.svg) |
-| `themes/zeroh/assets/` | Zeroh brand SVGs (Logo.svg, Icon.svg) |
-| `themes/grc/assets/` | Blade Labs GRC brand SVGs (Logo.svg, Icon.svg) |
+| `themes/zeroh/assets/` | Zeroh GRC brand SVGs (Logo.svg, Icon.svg) |
+| `themes/grc/assets/` | Blade Labs Corporate brand SVGs (Logo.svg, Icon.svg) |

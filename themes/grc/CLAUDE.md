@@ -1,6 +1,6 @@
 # Design System
 
-This project uses the **Blade Labs GRC** design system.
+This project uses the **Blade Labs Corporate** design system.
 
 ## Before any UI work
 
