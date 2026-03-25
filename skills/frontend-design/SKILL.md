@@ -169,7 +169,7 @@ Every brand ships two SVG files. **Always use these — never create placeholder
 |---|---|---|
 | Ali | `themes/ali/assets/Logo.svg` | `themes/ali/assets/Icon.svg` |
 | Zeroh GRC | `themes/zeroh/assets/Logo.svg` | `themes/zeroh/assets/Icon.svg` |
-| Blade Labs Corporate | `themes/grc/assets/Logo.svg` | `themes/grc/assets/Icon.svg` |
+| Blade Labs Corporate | `themes/corporate/assets/Logo.svg` | `themes/corporate/assets/Icon.svg` |
 
 **When to use each:**
 - `Logo.svg` — full wordmark. Use in nav bars, page headers, login screens, marketing surfaces.
@@ -221,4 +221,4 @@ Load these when operating in Path 2 (theme specified, no project files present).
 | `references/grc/globals.css` | Blade Labs Corporate token values |
 | `themes/ali/assets/` | Ali brand SVGs (Logo.svg, Icon.svg) |
 | `themes/zeroh/assets/` | Zeroh GRC brand SVGs (Logo.svg, Icon.svg) |
-| `themes/grc/assets/` | Blade Labs Corporate brand SVGs (Logo.svg, Icon.svg) |
+| `themes/corporate/assets/` | Blade Labs Corporate brand SVGs (Logo.svg, Icon.svg) |

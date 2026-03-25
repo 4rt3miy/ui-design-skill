@@ -64,7 +64,7 @@ cd my-project
 
 Blade Labs Corporate — dashboards, compliance, admin panels:
 ```bash
-curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/grc/setup.sh | bash
+curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/corporate/setup.sh | bash
 ```
 
 Ali — AI assistants, docs, knowledge bases:

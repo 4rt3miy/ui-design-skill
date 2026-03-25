@@ -20,9 +20,9 @@
       "port": 3002
     },
     {
-      "name": "GRC Preview",
+      "name": "Corporate Preview",
       "runtimeExecutable": "node",
-      "runtimeArgs": [".claude/serve.js", "3003", "themes/grc"],
+      "runtimeArgs": [".claude/serve.js", "3003", "themes/corporate"],
       "port": 3003
     }
   ]
