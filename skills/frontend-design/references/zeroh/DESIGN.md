@@ -1,4 +1,4 @@
-# Vital — Design System
+# Zeroh GRC — Design System
 
 Organic, friendly, approachable. Every decision prioritises warmth, accessibility, and a sense of ease.
 
@@ -48,6 +48,26 @@ Always use semantic tokens. Never use raw hex or HSL values in components.
 | `border-border` | Card outlines, dividers — soft green tint |
 | `ring-ring` | Focus rings — primary green |
 | `text-destructive` | Errors, critical states |
+
+### Brand gradient
+
+The gradient is the brand's signature on marketing surfaces. Use it on hero sections, landing page CTAs, and announcement banners. Use the solid primary for all app UI.
+
+| Token | Value |
+|---|---|
+| `--brand-gradient` | `linear-gradient(to right, #00bc7d, #009966)` |
+| `--brand-gradient-start` | `#00bc7d` (bright teal) |
+| `--brand-gradient-end` | `#009966` (deep green) |
+
+```tsx
+// Marketing CTA — use the gradient
+<a style={{ background: 'var(--brand-gradient)' }} className="text-white px-6 py-3 rounded-xl">
+  Start Your Journey →
+</a>
+
+// App UI button — use solid primary
+<Button>Get Started</Button>
+```
 
 ### Dark mode
 This theme supports dark mode via the `.dark` class. Tokens automatically shift to a deep forest background with light text. Claude should apply dark mode using the `.dark` class on the root element — never by duplicating color values.
@@ -140,3 +160,4 @@ This theme uses generous radius throughout — softness is intentional.
 - Never use filled icons
 - Never use `ease-in-out` or `linear` transitions
 - Never use raw `<button>` or `<input>` elements
+- Never use the brand gradient on app UI buttons, links, or interactive elements — gradient is for marketing surfaces only

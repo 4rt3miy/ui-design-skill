@@ -114,7 +114,8 @@ When the request is for a **standalone visual** rather than a UI component or ap
 - Inline all CSS as a `<style>` block — no external stylesheets
 - Use Google Fonts CDN for the brand typeface
 - Inline the `Logo.svg` directly — do not use `<img src>` for the logo
-- Apply the brand's exact tokens: primary color, background, typography scale
+- Apply the brand's exact tokens: primary color, background, typography scale, and `--brand-gradient` for marketing surfaces
+- For announcement cards, social banners, and event posters — use `var(--brand-gradient)` as the hero background; use `var(--primary)` for accent text or secondary elements
 - Output at the requested dimensions via a fixed-size wrapper (e.g. `width:1200px; height:627px` for LinkedIn)
 - The file must open directly in Chrome with no build step
 
@@ -136,6 +137,8 @@ When the request is for a **standalone visual** rather than a UI component or ap
 Different component types have different design priorities. Apply the aesthetic guidelines above, but also follow the component-specific principles below. When building a complex page, identify which component types are present and apply the relevant guidance to each.
 
 ### Hero Sections
+**Brand gradient rule (all three themes):** Every theme ships a `--brand-gradient` token. On marketing pages — hero sections, landing page CTAs, announcement banners — use `background: var(--brand-gradient)` for the hero background or primary CTA. Never use the gradient on app UI buttons, dashboard components, or interactive elements inside a product; those always use `var(--primary)` solid. When building a landing page for any of the three themes, the hero CTA should use the gradient by default unless the design brief specifies otherwise.
+
 The hero is the first impression — it must be immediate and visceral. The single most important principle: **one dominant visual idea**. A hero that tries to do too much (big text + illustration + animation + form + badges) collapses into noise. Pick the anchor — whether that's a typographic statement, a full-bleed image, a cinematic video, or a bold geometric shape — and let everything else serve it. Hierarchy should be unmistakable at a glance: headline, then subhead, then CTA, with enough breathing room that the eye knows exactly where to go. CTAs must feel consequential — size, contrast, and placement should make the primary action feel inevitable, not optional. Avoid hero sections that feel like templates: centered text, gradient blob behind it, two buttons. Push the layout off-center, overlap elements, break the grid.
 
 ### Navigation

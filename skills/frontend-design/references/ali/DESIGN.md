@@ -57,6 +57,26 @@ Always use semantic tokens. Never use primitive hex values in components.
 | `bg-sidebar-accent` | Hover / selected state |
 | `border-sidebar-border` | Sidebar dividers |
 
+### Brand gradient
+
+The gradient is the brand's signature on marketing surfaces. Use it on hero sections, landing page CTAs, and announcement banners. Use the solid primary for all app UI.
+
+| Token | Value |
+|---|---|
+| `--brand-gradient` | `linear-gradient(to right, #6FA28F, #1F5B46)` |
+| `--brand-gradient-start` | `#6FA28F` (sage green) |
+| `--brand-gradient-end` | `#1F5B46` (forest green) |
+
+```tsx
+// Marketing CTA — use the gradient
+<a style={{ background: 'var(--brand-gradient)' }} className="text-white px-6 py-3 rounded-lg">
+  Explore Ali →
+</a>
+
+// App UI button — use solid primary
+<Button>Primary Action</Button>
+```
+
 ---
 
 ## Components
@@ -144,3 +164,4 @@ Height: `42px` · Radius: `12px` · Focus ring: primary at 8% opacity
 - Never use `ease-in-out` or `linear` transitions
 - Never use raw `<button>` or `<input>` elements
 - Never use gray-400 for text — fails contrast on parchment background
+- Never use the brand gradient on app UI buttons, links, or interactive elements — gradient is for marketing surfaces only
