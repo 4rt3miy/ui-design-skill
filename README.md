@@ -21,7 +21,7 @@ There are three brand design systems. Claude picks the right one based on what y
 ### Blade Labs Corporate
 > Dashboards, internal tools, compliance, admin panels
 
-Precise and warm. DM Sans typeface, warm stone neutrals with amber accents. Prioritises information density and scannability.
+Precise and digital. Inter typeface, white background with indigo primary. Brand gradient (slate-violet → deep indigo) for marketing surfaces. Prioritises information density and authority.
 
 ### Ali
 > AI assistants, document tools, knowledge bases, Shariah advisory

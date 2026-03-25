@@ -10,9 +10,10 @@ Read these two files first — they define all design decisions:
 
 ## Non-negotiables
 
-- Typeface: **DM Sans** — never substitute for another font
-- Background: `bg-background` (warm off-white #F5F3F0)
-- Primary: `bg-primary` (amber-brown #92400E)
+- Typeface: **Inter** — never substitute for another font
+- Background: `bg-background` (white #ffffff)
+- Primary: `bg-primary` (indigo #4f39f6)
+- Brand gradient: `var(--brand-gradient)` — marketing surfaces only (hero, landing CTA, banners)
 - Components: shadcn/ui only — never raw HTML elements
 - Icons: Lucide React only, `strokeWidth={1.5}`
 - Tokens: semantic only — never raw hex values in components
