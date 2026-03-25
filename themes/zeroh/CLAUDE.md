@@ -1,6 +1,6 @@
 # Design System
 
-This project uses the **Zeroh** design system.
+This project uses the **Zeroh GRC** design system.
 
 ## Before any UI work
 

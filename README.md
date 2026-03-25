@@ -10,7 +10,7 @@ You build prototypes and apps with Claude Code. You care about how things look b
 
 When active, this skill gives Claude a complete design system to work from. Every component, page, and layout it generates follows consistent rules for typography, color, spacing, and motion. You never see any of that. You just get UI that looks like someone designed it.
 
-- **Three brand design systems** — Ali, Zeroh, and Blade Labs GRC
+- **Three brand design systems** — Ali, Zeroh GRC, and Blade Labs Corporate
 - Consistent components and icons across everything it builds
 - **PR & marketing collateral** — generate branded social cards, announcement banners, and presentation assets as self-contained HTML, ready to push to Figma
 
@@ -18,7 +18,7 @@ When active, this skill gives Claude a complete design system to work from. Ever
 
 There are three brand design systems. Claude picks the right one based on what you're building — you can always tell it to switch.
 
-### Blade Labs GRC
+### Blade Labs Corporate
 > Dashboards, internal tools, compliance, admin panels
 
 Precise and warm. DM Sans typeface, warm stone neutrals with amber accents. Prioritises information density and scannability.
@@ -28,7 +28,7 @@ Precise and warm. DM Sans typeface, warm stone neutrals with amber accents. Prio
 
 Scholarly and calm. Crimson Pro serif typeface, parchment background with forest green primary. Prioritises legibility and trust.
 
-### Zeroh
+### Zeroh GRC
 > Health, wellness, consumer products, onboarding flows
 
 Organic and friendly. Quicksand typeface, clean white with fresh green accents. Prioritises warmth and approachability.
@@ -37,16 +37,16 @@ Organic and friendly. Quicksand typeface, clean white with fresh green accents. 
 
 | What you're building | Theme |
 |---|---|
-| Dashboards, data tools, compliance | Blade Labs GRC |
+| Dashboards, data tools, compliance | Blade Labs Corporate |
 | AI assistants, docs, knowledge bases | Ali |
-| Health, wellness, consumer, onboarding | Zeroh |
+| Health, wellness, consumer, onboarding | Zeroh GRC |
 
 Claude will confirm before generating anything:
 > *"Going with **Ali** — knowledge base. Good?"*
 
 Just say yes and it builds. If it picked wrong, tell it and it switches.
 
-> **Note:** Claude Code uses the word "theme" for its own dark/light color setting. To avoid confusion, say **"use the Ali design system"** or **"switch to Blade Labs GRC"** — not "change the theme".
+> **Note:** Claude Code uses the word "theme" for its own dark/light color setting. To avoid confusion, say **"use the Ali design system"** or **"switch to Blade Labs Corporate"** — not "change the theme".
 
 ## Getting started
 
@@ -62,7 +62,7 @@ cd my-project
 
 **2. Run the setup for your chosen theme**
 
-Blade Labs GRC — dashboards, compliance, admin panels:
+Blade Labs Corporate — dashboards, compliance, admin panels:
 ```bash
 curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/grc/setup.sh | bash
 ```
@@ -72,7 +72,7 @@ Ali — AI assistants, docs, knowledge bases:
 curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/ali/setup.sh | bash
 ```
 
-Zeroh — health, wellness, consumer apps:
+Zeroh GRC — health, wellness, consumer apps:
 ```bash
 curl -s https://raw.githubusercontent.com/Blade-Labs/ui-design-skill/main/themes/zeroh/setup.sh | bash
 ```
@@ -133,8 +133,8 @@ Generate branded social cards, announcement banners, and presentation assets —
 **2. Prompt Claude:**
 ```
 Generate a self-contained HTML announcement card for a new product launch.
-Use the Blade Labs GRC design system.
-The announcement is: "Blade Labs GRC now supports AI-powered risk scoring."
+Use the Blade Labs Corporate design system.
+The announcement is: "Blade Labs Corporate now supports AI-powered risk scoring."
 Format: LinkedIn post image (1200×627px)
 ```
 
