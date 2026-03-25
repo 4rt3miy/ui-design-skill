@@ -11,6 +11,7 @@
   <style>
     /* ─── L1 / L2 — Zeroh GRC tokens (HSL format from globals.css) ── */
     :root {
+      --brand-gradient: linear-gradient(to right, #00bc7d, #009966);
       --background-h: 0; --background-s: 0%; --background-l: 100%;
       --foreground-h: 225; --foreground-s: 16%; --foreground-l: 12%;
       --muted-h: 144; --muted-s: 33%; --muted-l: 96%;
@@ -749,42 +750,63 @@
 
   <!-- Spacing & Radius -->
       <section class="section">
-      <h2 class="section-title">Brand Colour</h2>
-      <p class="section-subtitle">Zeroh GRC uses a single solid primary colour across all surfaces. No gradient. The fresh green applies equally to app UI buttons, links, highlights, and marketing CTAs.</p>
+      <h2 class="section-title">Brand Gradient</h2>
+      <p class="section-subtitle">
+        The gradient is the brand's signature on marketing surfaces — hero sections, landing page CTAs, announcement banners. Use the solid primary for all app UI buttons, links, and interactive elements.
+      </p>
 
       <div class="lup-subsection">
-        <p class="lup-subsection-title">Primary colour</p>
+        <p class="lup-subsection-title">Gradient swatch</p>
+        <div style="border-radius:12px;overflow:hidden;margin-bottom:24px;">
+          <div style="background:linear-gradient(to right, #00bc7d, #009966);height:80px;display:flex;align-items:center;justify-content:center;">
+            <span style="color:#fff;font-size:12px;font-weight:600;letter-spacing:0.08em;opacity:0.9;">linear-gradient(to right, #00bc7d, #009966)</span>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--border);border-top:none;padding:10px 12px;">
+            <code style="font-size:11px;color:var(--muted-foreground);">background: var(--brand-gradient)</code>
+          </div>
+        </div>
+
+        <p class="lup-subsection-title">Approved uses</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
-          <div style="border-radius:12px;overflow:hidden;">
-            <div style="background:#0E8F3C;height:80px;display:flex;align-items:center;justify-content:center;">
-              <span style="color:#fff;font-size:12px;font-weight:600;letter-spacing:0.08em;opacity:0.9;">#0E8F3C</span>
+          <div style="border-radius:10px;overflow:hidden;">
+            <div style="background:linear-gradient(to right, #00bc7d, #009966);padding:32px 24px;display:flex;flex-direction:column;gap:12px;">
+              <span style="color:rgba(255,255,255,0.7);font-size:11px;font-weight:600;letter-spacing:0.1em;">HERO SECTION CTA</span>
+              <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);backdrop-filter:blur(4px);color:#fff;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:500;width:fit-content;">
+                Start Your Journey &rarr;
+              </div>
             </div>
             <div style="background:var(--card);border:1px solid var(--border);border-top:none;padding:10px 12px;">
-              <code style="font-size:11px;color:var(--muted-foreground);">var(--primary) = hsl(147 91% 33%) = #0E8F3C</code>
+              <code style="font-size:11px;color:var(--muted-foreground);">background: var(--brand-gradient)</code>
             </div>
           </div>
-          <div style="border-radius:12px;overflow:hidden;">
-            <div style="background:#F0FDF4;height:80px;display:flex;align-items:center;justify-content:center;">
-              <span style="color:#0E8F3C;font-size:12px;font-weight:600;letter-spacing:0.08em;">Fresh Green on light surface</span>
+          <div style="border-radius:10px;overflow:hidden;">
+            <div style="background:linear-gradient(to right, #00bc7d, #009966);padding:32px 24px;">
+              <span style="color:rgba(255,255,255,0.7);font-size:11px;font-weight:600;letter-spacing:0.1em;">MARKETING BANNER</span>
+              <p style="color:#fff;font-size:16px;font-weight:700;margin-top:8px;line-height:1.4;">Wellness Starts<br>with Clarity</p>
             </div>
             <div style="background:var(--card);border:1px solid var(--border);border-top:none;padding:10px 12px;">
-              <code style="font-size:11px;color:var(--muted-foreground);">color: var(--primary) on var(--secondary)</code>
+              <code style="font-size:11px;color:var(--muted-foreground);">background: var(--brand-gradient)</code>
             </div>
           </div>
         </div>
-        <p class="lup-subsection-title">Approved uses</p>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;">
-            <span style="font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--muted-foreground);">APP BUTTON</span>
-            <button style="background:#0E8F3C;color:#fff;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:500;border:none;cursor:pointer;">Get Started</button>
+
+        <p class="lup-subsection-title">Solid primary — app UI</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="border-radius:10px;overflow:hidden;">
+            <div style="background:var(--card);border:1px solid var(--border);padding:32px 24px;display:flex;gap:8px;align-items:center;">
+              <button style="background:var(--primary);color:var(--primary-foreground);padding:8px 18px;border-radius:10px;font-size:13px;font-weight:500;border:none;cursor:pointer;">Get Started</button>
+              <button style="background:transparent;color:var(--primary);border:1px solid var(--border);padding:8px 18px;border-radius:10px;font-size:13px;font-weight:500;cursor:pointer;">Learn More</button>
+            </div>
+            <div style="background:var(--muted);border:1px solid var(--border);border-top:none;padding:10px 12px;">
+              <code style="font-size:11px;color:var(--muted-foreground);">--primary = hsl(147 91% 33%) = #0E8F3C</code>
+            </div>
           </div>
-          <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;">
-            <span style="font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--muted-foreground);">LINK / INLINE</span>
-            <a href="#" style="color:#0E8F3C;font-size:13px;font-weight:500;text-decoration:underline;text-underline-offset:3px;">Learn more &#8594;</a>
-          </div>
-          <div style="background:#0E8F3C;border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;">
-            <span style="font-size:11px;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.7);">MARKETING CTA</span>
-            <button style="background:rgba(255,255,255,0.2);color:#fff;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:500;border:1px solid rgba(255,255,255,0.3);cursor:pointer;">Schedule Demo &#8594;</button>
+          <div style="padding:16px;background:var(--accent);border-radius:10px;border:1px solid var(--border);">
+            <p style="font-size:12px;font-weight:600;color:var(--foreground);margin-bottom:8px;">Usage rule</p>
+            <p style="font-size:12px;color:var(--muted-foreground);line-height:1.7;">
+              <strong style="color:var(--foreground)">Marketing surfaces</strong> (hero, landing CTA, banners) &rarr; <code style="font-size:11px;">var(--brand-gradient)</code><br>
+              <strong style="color:var(--foreground)">App UI</strong> (buttons, links, badges) &rarr; <code style="font-size:11px;">var(--primary)</code>
+            </p>
           </div>
         </div>
       </div>
