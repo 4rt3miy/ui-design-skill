@@ -16,7 +16,8 @@ const mime = {
 };
 
 http.createServer((req, res) => {
-  let filePath = path.join(root, req.url === '/' ? '/index.html' : req.url);
+  let filePath = path.join(root, req.url === '/' ? '/preview.html' : req.url);
+  if (!fs.existsSync(filePath) && req.url === '/') filePath = path.join(root, '/index.html');
   filePath = filePath.split('?')[0];
   const ext = path.extname(filePath);
   fs.readFile(filePath, (err, data) => {
