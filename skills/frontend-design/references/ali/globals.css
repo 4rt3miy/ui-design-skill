@@ -45,6 +45,11 @@
   --sand-900: #221D15;
   --sand-950: #14110D;
 
+
+  /* --- Brand gradient --- */
+  --brand-gradient-start: #6FA28F;
+  --brand-gradient-end:   #1F5B46;
+  --brand-gradient: linear-gradient(to right, #6FA28F, #1F5B46);
   /* --- L2 Semantics --- */
   --background:         var(--sand-50);
   --foreground:         var(--sand-900);
