@@ -24,7 +24,7 @@
   --gold-50:  #FBF6E8;
   --gold-100: #F5EAD0;
   --gold-200: #EAD39F;
-  --gold-300: #DDBA6C;
+  --gold-300: #DCB868;   /* Figma source — logo solid gold anchor */
   --gold-400: #CFA13F;
   --gold-500: #B8891C;
   --gold-600: #8F6B15;
@@ -54,10 +54,10 @@
   /* --- Logo gradient (signature mark — 3-stop metallic gold) --- */
   /* Use on the Icon only; wordmark uses --logo-solid */
   --logo-gradient-start: #7A5C12;   /* dark gold */
-  --logo-gradient-mid:   #DDBA6C;   /* bright gold highlight */
+  --logo-gradient-mid:   #DCB868;   /* bright gold highlight — Figma anchor */
   --logo-gradient-end:   #9B7318;   /* warm gold */
-  --logo-gradient: linear-gradient(to right, #7A5C12 0%, #DDBA6C 50%, #9B7318 100%);
-  --logo-solid:    #CFA13F;         /* flat gold — wordmark only */
+  --logo-gradient: linear-gradient(to right, #7A5C12 0%, #DCB868 50%, #9B7318 100%);
+  --logo-solid:    var(--gold-300); /* #DCB868 — Figma source, wordmark fill */
   /* --- L2 Semantics --- */
   --background:         var(--sand-50);
   --foreground:         var(--sand-900);
