@@ -220,8 +220,8 @@ Load these when operating in Path 2 (theme specified, no project files present).
 | `references/ali/globals.css` | Ali token values |
 | `references/zeroh/DESIGN.md` | Zeroh GRC design system — typography, color, components |
 | `references/zeroh/globals.css` | Zeroh GRC token values |
-| `references/grc/DESIGN.md` | Blade Labs Corporate design system — typography, color, components |
-| `references/grc/globals.css` | Blade Labs Corporate token values |
+| `references/corporate/DESIGN.md` | Blade Labs Corporate design system — typography, color, components |
+| `references/corporate/globals.css` | Blade Labs Corporate token values |
 | `themes/ali/assets/` | Ali brand SVGs (Logo.svg, Icon.svg) |
 | `themes/zeroh/assets/` | Zeroh GRC brand SVGs (Logo.svg, Icon.svg) |
 | `themes/corporate/assets/` | Blade Labs Corporate brand SVGs (Logo.svg, Icon.svg) |
