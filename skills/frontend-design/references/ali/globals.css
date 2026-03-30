@@ -56,7 +56,7 @@
   --logo-gradient-start: #7A5C12;   /* dark gold */
   --logo-gradient-mid:   #DDBA6C;   /* bright gold highlight */
   --logo-gradient-end:   #9B7318;   /* warm gold */
-  --logo-gradient: linear-gradient(to bottom, #7A5C12 0%, #DDBA6C 50%, #9B7318 100%);
+  --logo-gradient: linear-gradient(to right, #7A5C12 0%, #DDBA6C 50%, #9B7318 100%);
   --logo-solid:    #CFA13F;         /* flat gold — wordmark only */
   /* --- L2 Semantics --- */
   --background:         var(--sand-50);
