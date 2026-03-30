@@ -278,6 +278,37 @@ Per-brand favicon colors:
 | Icon | 16px | 24px nav · 32px UI |
 | Favicon | 16px | 32px |
 
+### Ali — signature lockup (special case)
+
+Ali has **two separate colour systems**: gold for the logo, forest green for the app UI. They never mix.
+
+The primary Ali logo form is a composed lockup: **Icon with a 3-stop metallic gold gradient** + **Wordmark in flat solid gold**, always on a dark/black background. Use `--logo-gradient` and `--logo-solid` — never `--brand-gradient` (which is sage→forest green and belongs to marketing UI only).
+
+```jsx
+// Ali signature lockup — dark background
+<div style={{ display: 'flex', alignItems: 'center', gap: '20px', background: '#0A0A0A' }}>
+  {/* Icon — 3-stop gold gradient: gold-700 → gold-200 → gold-500 */}
+  <div style={{
+    background: 'var(--logo-gradient)',
+    WebkitMask: "url('/brand/Icon.svg') no-repeat center / contain",
+    mask: "url('/brand/Icon.svg') no-repeat center / contain",
+    width: '52px', height: '52px',
+  }} />
+  {/* Wordmark — flat solid gold (gold-300) */}
+  <div style={{
+    background: 'var(--logo-solid)',
+    WebkitMask: "url('/brand/Logo.svg') no-repeat center / contain",
+    mask: "url('/brand/Logo.svg') no-repeat center / contain",
+    width: '200px', height: '52px',
+  }} />
+</div>
+```
+
+| Token | Value | Role |
+|---|---|---|
+| `--logo-gradient` | `linear-gradient(to right, #6A4F10, #EAD39F, #B8891C)` | Icon fill — gold-700 → gold-200 → gold-500 |
+| `--logo-solid` | `#DCB868` (`--gold-300`) | Wordmark fill — Figma-sourced anchor |
+
 ### Don'ts
 
 - Never recreate, redraw, or substitute the logo with inline text
@@ -288,6 +319,7 @@ Per-brand favicon colors:
 - Never use a transparent background for favicons
 - Never use `Logo.svg` as a favicon — it is a wide wordmark, not a square mark
 - Never hardcode a color directly on the SVG element — always control via CSS `color` on the wrapper
+- **Ali only**: Never use `var(--brand-gradient)` on the Ali logo — the logo uses `var(--logo-gradient)` gold, not the green UI gradient
 
 ---
 
