@@ -551,114 +551,159 @@
 
   <section class="section" id="logo-usage">
     <h2 class="section-title">Logo &amp; Icon Usage</h2>
-    <p class="section-subtitle">Ali uses two distinct colour systems: <strong>gold for the logo</strong> and <strong>forest green for the app UI</strong>. Never mix them.</p>
+    <p class="section-subtitle">Ali has two independent colour systems: <strong>gold for the logo</strong> and <strong>forest green for the app UI</strong>. They never mix — the logo is never green, app buttons are never gold.</p>
 
     <!-- SIGNATURE LOCKUP -->
-    <div style="margin-bottom:32px;">
-      <div class="token-label" style="margin-bottom:14px;">Signature lockup — primary form (dark backgrounds)</div>
-      <div style="background:#0A0A0A;border-radius:14px;padding:48px 56px;display:inline-flex;align-items:center;gap:24px;">
+    <div style="margin-bottom:40px;">
+      <div class="token-label" style="margin-bottom:16px;">Signature lockup — primary form</div>
+      <div style="background:#0A0A0A;border-radius:18px;padding:56px 64px;display:inline-flex;align-items:center;gap:28px;">
         <!-- Icon: 3-stop metallic gold gradient via CSS mask -->
         <div style="
-          background: linear-gradient(to right, #70510A 0%, #F0D599 50%, #C38D11 100%);
+          background: var(--logo-gradient, linear-gradient(to right, #70510A 0%, #F0D599 50%, #C38D11 100%));
           -webkit-mask: url('assets/Icon.svg') no-repeat center / contain;
           mask: url('assets/Icon.svg') no-repeat center / contain;
-          width: 56px; height: 56px; flex-shrink: 0;
+          width: 64px; height: 64px; flex-shrink: 0;
         "></div>
         <!-- Wordmark: flat solid gold via CSS mask -->
         <div style="
-          background: #DCB868;
-          -webkit-mask: url('assets/Logo.svg') no-repeat center / contain;
-          mask: url('assets/Logo.svg') no-repeat center / contain;
-          width: 152px; height: 40px; flex-shrink: 0;
+          background: var(--logo-solid, #DCB868);
+          -webkit-mask: url('assets/Logo.svg') no-repeat left center / contain;
+          mask: url('assets/Logo.svg') no-repeat left center / contain;
+          width: 220px; height: 58px; flex-shrink: 0;
         "></div>
       </div>
-      <div style="margin-top:14px;display:flex;gap:24px;font-size:12px;font-family:monospace;color:var(--muted-foreground);">
-        <span>Icon: <span style="color:#F0D599;">linear-gradient(to right, #70510A, #F0D599, #C38D11)</span></span>
-        <span>Wordmark: <span style="color:#DCB868;">#DCB868 — var(--logo-solid)</span></span>
+
+      <!-- Annotations -->
+      <div style="margin-top:20px;display:grid;grid-template-columns:auto auto;gap:8px 48px;width:fit-content;">
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">Icon</div>
+          <div style="font-size:12px;font-family:monospace;color:#C38D11;">var(--logo-gradient)</div>
+          <div style="font-size:11px;color:var(--muted-foreground);">--gold-700 → --gold-200 → --gold-500</div>
+          <div style="font-size:11px;font-family:monospace;color:var(--muted-foreground);opacity:.7">#70510A → #F0D599 → #C38D11</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">Wordmark</div>
+          <div style="font-size:12px;font-family:monospace;color:#DCB868;">var(--logo-solid)</div>
+          <div style="font-size:11px;color:var(--muted-foreground);">--gold-300 · flat solid</div>
+          <div style="font-size:11px;font-family:monospace;color:var(--muted-foreground);opacity:.7">#DCB868</div>
+        </div>
       </div>
     </div>
 
-    <!-- VARIANTS GRID -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;">
+    <!-- COLOUR VARIANTS -->
+    <div class="token-label" style="margin-bottom:16px;">Colour variants</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px;">
 
-      <!-- Gradient icon standalone -->
-      <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:12px;padding:24px;">
-        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">Gradient lockup — marketing wordmark only</div>
+      <!-- Solid primary — app nav (light bg) -->
+      <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:14px;padding:24px;">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">Solid primary — app nav, headers</div>
         <div style="
-          background: linear-gradient(to right, #6FA28F, #1F5B46);
-          -webkit-mask: url('assets/Logo.svg') no-repeat center / contain;
-          mask: url('assets/Logo.svg') no-repeat center / contain;
+          background: var(--primary);
+          -webkit-mask: url('assets/Logo.svg') no-repeat left center / contain;
+          mask: url('assets/Logo.svg') no-repeat left center / contain;
           width: 180px; height: 48px; flex-shrink: 0;
         "></div>
-        <div style="font-size:12px;color:var(--muted-foreground);font-family:monospace">CSS mask + var(--brand-gradient)</div>
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <div style="font-size:12px;color:var(--primary);font-family:monospace;">var(--primary)</div>
+          <div style="font-size:11px;color:var(--muted-foreground);">Light backgrounds · forest green</div>
+        </div>
       </div>
 
-      <!-- Solid primary -->
-      <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:12px;padding:24px;">
-        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">Solid primary — app nav / header (light bg)</div>
-        <div style="color:var(--primary)">
-          <img src="assets/Logo.svg" alt="logo" style="height:36px;width:auto;display:block;" />
+      <!-- Brand gradient — marketing -->
+      <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:14px;padding:24px;">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">Brand gradient — marketing surfaces</div>
+        <div style="
+          background: var(--brand-gradient, linear-gradient(to right, #6FA28F, #1F5B46));
+          -webkit-mask: url('assets/Logo.svg') no-repeat left center / contain;
+          mask: url('assets/Logo.svg') no-repeat left center / contain;
+          width: 180px; height: 48px; flex-shrink: 0;
+        "></div>
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <div style="font-size:12px;color:var(--muted-foreground);font-family:monospace;">var(--brand-gradient)</div>
+          <div style="font-size:11px;color:var(--muted-foreground);">Hero sections · CTAs · banners</div>
         </div>
-        <div style="font-size:12px;color:var(--muted-foreground);font-family:monospace">color: var(--primary)</div>
       </div>
 
       <!-- White on dark -->
-      <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:12px;padding:24px;background:var(--foreground);border-color:transparent;">
-        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5)">White — on dark or gradient backgrounds</div>
-        <div style="color:#ffffff">
-          <img src="assets/Logo.svg" alt="logo" style="height:36px;width:auto;display:block;filter:brightness(0) invert(1);" />
+      <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:14px;padding:24px;background:var(--foreground);border-color:transparent;">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.45)">White — on dark or coloured backgrounds</div>
+        <div style="
+          background: #ffffff;
+          -webkit-mask: url('assets/Logo.svg') no-repeat left center / contain;
+          mask: url('assets/Logo.svg') no-repeat left center / contain;
+          width: 180px; height: 48px; flex-shrink: 0;
+        "></div>
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <div style="font-size:12px;color:rgba(255,255,255,.6);font-family:monospace;">#ffffff</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.35);">Dark backgrounds · gradient surfaces</div>
         </div>
-        <div style="font-size:12px;color:rgba(255,255,255,.4);font-family:monospace">color: #ffffff</div>
       </div>
 
-      <!-- Icon variants -->
-      <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:12px;padding:24px;">
-        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">Icon only — sidebar / mobile nav / small contexts</div>
-        <div style="display:flex;gap:16px;align-items:center;">
-          <!-- gold gradient icon -->
-          <div style="
-            background: linear-gradient(to right, #70510A 0%, #F0D599 50%, #C38D11 100%);
-            -webkit-mask: url('assets/Icon.svg') no-repeat center / contain;
-            mask: url('assets/Icon.svg') no-repeat center / contain;
-            width:36px;height:36px;flex-shrink:0;
-          " title="Gold gradient"></div>
-          <!-- solid primary icon -->
-          <div style="color:var(--primary)">
-            <img src="assets/Icon.svg" alt="icon" style="height:36px;width:auto;display:block;" />
+      <!-- Icon only -->
+      <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:14px;padding:24px;">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-foreground)">Icon only — collapsed sidebar, &le;32px</div>
+        <div style="display:flex;gap:20px;align-items:center;">
+          <!-- gold gradient -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="
+              background: var(--logo-gradient, linear-gradient(to right, #70510A 0%, #F0D599 50%, #C38D11 100%));
+              -webkit-mask: url('assets/Icon.svg') no-repeat center / contain;
+              mask: url('assets/Icon.svg') no-repeat center / contain;
+              width:44px;height:44px;flex-shrink:0;
+            "></div>
+            <div style="font-size:10px;font-family:monospace;color:var(--muted-foreground);">--logo-gradient</div>
           </div>
-          <!-- white icon on dark pill -->
-          <div style="background:var(--foreground);border-radius:8px;padding:6px;display:flex;align-items:center;">
-            <img src="assets/Icon.svg" alt="icon" style="height:24px;width:auto;display:block;filter:brightness(0) invert(1);" />
+          <!-- solid primary -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="
+              background: var(--primary);
+              -webkit-mask: url('assets/Icon.svg') no-repeat center / contain;
+              mask: url('assets/Icon.svg') no-repeat center / contain;
+              width:44px;height:44px;flex-shrink:0;
+            "></div>
+            <div style="font-size:10px;font-family:monospace;color:var(--muted-foreground);">--primary</div>
+          </div>
+          <!-- white on dark -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="background:var(--foreground);border-radius:10px;padding:8px;display:flex;align-items:center;justify-content:center;">
+              <div style="
+                background: #ffffff;
+                -webkit-mask: url('assets/Icon.svg') no-repeat center / contain;
+                mask: url('assets/Icon.svg') no-repeat center / contain;
+                width:28px;height:28px;flex-shrink:0;
+              "></div>
+            </div>
+            <div style="font-size:10px;font-family:monospace;color:var(--muted-foreground);">#ffffff</div>
           </div>
         </div>
-        <div style="font-size:12px;color:var(--muted-foreground)">gold gradient · solid primary · white</div>
       </div>
 
     </div>
 
     <!-- FAVICON -->
-    <div style="margin-bottom:24px;">
-      <div class="token-label" style="margin-bottom:12px;">Favicon — always solid background, never transparent</div>
-      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+    <div style="margin-bottom:32px;">
+      <div class="token-label" style="margin-bottom:16px;">Favicon — Icon.svg on solid background, never transparent</div>
+      <div style="display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;">
         <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div style="background:#1F5B46;border-radius:6px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;">
-            <img src="assets/Icon.svg" style="width:20px;height:20px;filter:brightness(0) invert(1);" />
-          </div>
-          <span style="font-size:11px;color:var(--muted-foreground)">32px</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div style="background:#1F5B46;border-radius:4px;width:16px;height:16px;display:flex;align-items:center;justify-content:center;">
-            <img src="assets/Icon.svg" style="width:10px;height:10px;filter:brightness(0) invert(1);" />
-          </div>
-          <span style="font-size:11px;color:var(--muted-foreground)">16px</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          <div style="background:#1F5B46;border-radius:14px;width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
+          <div style="background:var(--primary);border-radius:14px;width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
             <img src="assets/Icon.svg" style="width:40px;height:40px;filter:brightness(0) invert(1);" />
           </div>
-          <span style="font-size:11px;color:var(--muted-foreground)">64px</span>
+          <span style="font-size:11px;font-family:monospace;color:var(--muted-foreground)">64px</span>
         </div>
-        <div style="font-size:11px;font-family:monospace;color:var(--muted-foreground);line-height:1.7;background:var(--muted);padding:10px 14px;border-radius:8px;flex:1;min-width:220px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <div style="background:var(--primary);border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;">
+            <img src="assets/Icon.svg" style="width:20px;height:20px;filter:brightness(0) invert(1);" />
+          </div>
+          <span style="font-size:11px;font-family:monospace;color:var(--muted-foreground)">32px</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <div style="background:var(--primary);border-radius:4px;width:16px;height:16px;display:flex;align-items:center;justify-content:center;">
+            <img src="assets/Icon.svg" style="width:10px;height:10px;filter:brightness(0) invert(1);" />
+          </div>
+          <span style="font-size:11px;font-family:monospace;color:var(--muted-foreground)">16px</span>
+        </div>
+        <div style="font-size:11px;font-family:monospace;color:var(--muted-foreground);line-height:1.9;background:var(--muted);padding:12px 16px;border-radius:10px;flex:1;min-width:240px;">
+          Background: var(--primary) · #1F5B46<br>
           &lt;link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" /&gt;<br>
           &lt;link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" /&gt;
         </div>
@@ -666,17 +711,18 @@
     </div>
 
     <!-- USAGE RULES -->
-    <div style="background:var(--muted);border-radius:10px;padding:20px 24px;">
-      <div style="font-size:12px;font-weight:600;color:var(--foreground);margin-bottom:12px;">Usage rules</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:12px;color:var(--muted-foreground);">
-        <div>✓ Signature lockup (gold) → dark backgrounds, marketing, splash</div>
-        <div>✗ Logo in forest green — logo is gold only, never primary green</div>
-        <div>✓ Solid primary → app nav, headers on light backgrounds</div>
-        <div>✗ Transparent favicon → always solid background</div>
-        <div>✓ White → on gradient or coloured backgrounds</div>
-        <div>✗ Logo.svg as favicon → too wide; always use Icon.svg</div>
-        <div>✓ Icon only → collapsed sidebar, ≤ 32px contexts</div>
-        <div>✗ Gold colours on app UI buttons — gold is for the logo only</div>
+    <div style="border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;">
+        <div style="padding:16px 20px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);">Do</div>
+        <div style="padding:16px 20px;border-bottom:1px solid var(--border);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--destructive);">Don't</div>
+        <div style="padding:14px 20px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-size:12px;color:var(--foreground);">Signature lockup (gold) on dark backgrounds, marketing &amp; splash screens</div>
+        <div style="padding:14px 20px;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted-foreground);">Logo in forest green — logo is gold-only, never var(--primary)</div>
+        <div style="padding:14px 20px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-size:12px;color:var(--foreground);">Solid primary on light app surfaces (nav, headers)</div>
+        <div style="padding:14px 20px;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted-foreground);">Gold colours on app UI buttons — gold tokens are for the logo only</div>
+        <div style="padding:14px 20px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-size:12px;color:var(--foreground);">White wordmark on dark or gradient-filled backgrounds</div>
+        <div style="padding:14px 20px;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted-foreground);">Logo.svg as favicon — it's too wide; always use Icon.svg</div>
+        <div style="padding:14px 20px;border-right:1px solid var(--border);font-size:12px;color:var(--foreground);">Icon only in collapsed sidebar or contexts ≤ 32px</div>
+        <div style="padding:14px 20px;font-size:12px;color:var(--muted-foreground);">Transparent favicon — always use a solid background</div>
       </div>
     </div>
   </section>
