@@ -46,10 +46,18 @@
   --sand-950: #14110D;
 
 
-  /* --- Brand gradient --- */
+  /* --- Brand gradient (marketing UI — sage → forest green) --- */
   --brand-gradient-start: #6FA28F;
   --brand-gradient-end:   #1F5B46;
   --brand-gradient: linear-gradient(to right, #6FA28F, #1F5B46);
+
+  /* --- Logo gradient (signature mark — 3-stop metallic gold) --- */
+  /* Use on the Icon only; wordmark uses --logo-solid */
+  --logo-gradient-start: #7A5C12;   /* dark gold */
+  --logo-gradient-mid:   #DDBA6C;   /* bright gold highlight */
+  --logo-gradient-end:   #9B7318;   /* warm gold */
+  --logo-gradient: linear-gradient(to bottom, #7A5C12 0%, #DDBA6C 50%, #9B7318 100%);
+  --logo-solid:    #CFA13F;         /* flat gold — wordmark only */
   /* --- L2 Semantics --- */
   --background:         var(--sand-50);
   --foreground:         var(--sand-900);

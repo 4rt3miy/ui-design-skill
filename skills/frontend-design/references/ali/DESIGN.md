@@ -59,15 +59,46 @@ Always use semantic tokens. Never use primitive hex values in components.
 
 ### Logo
 
+Ali has two distinct colour systems: **gold for the logo** and **forest green for the app UI**. Never mix them — the logo never appears in green and app UI buttons never use gold.
+
+#### Signature lockup (primary form)
+
+The primary Ali logo is a **composed lockup**: Icon with 3-stop metallic gold gradient + Wordmark in flat solid gold. Use this on any dark or black surface — marketing heroes, splash screens, collateral, loading screens.
+
+| Part | Colour | Token |
+|---|---|---|
+| Icon (circle + A mark) | 3-stop metallic gradient, top→bottom | `var(--logo-gradient)` |
+| Wordmark ("Ask Ali") | Flat solid gold | `var(--logo-solid)` |
+| Background | Black or very dark | `#0A0A0A` / `var(--foreground)` |
+
+Logo gradient stops: `#7A5C12` (dark) → `#DDBA6C` (bright highlight, 50%) → `#9B7318` (warm gold)
+
+```tsx
+// Signature lockup — dark background
+<div style={{ display: 'flex', alignItems: 'center', gap: '20px', background: '#0A0A0A', padding: '32px 40px' }}>
+  {/* Icon — 3-stop gold gradient via CSS mask */}
+  <div style={{
+    background: 'var(--logo-gradient)',
+    WebkitMask: "url('/brand/Icon.svg') no-repeat center / contain",
+    mask: "url('/brand/Icon.svg') no-repeat center / contain",
+    width: '52px', height: '52px', flexShrink: 0,
+  }} />
+  {/* Wordmark — flat solid gold */}
+  <div style={{ color: 'var(--logo-solid)' }}>
+    {/* inline Logo.svg */}
+  </div>
+</div>
+```
+
+#### Other variants
+
 | Variant | Context | Implementation |
 |---|---|---|
-| Lockup gradient | Marketing heroes, collateral, splash screens | CSS mask + `var(--brand-gradient)` |
-| Lockup solid | App nav, headers, login | `color: var(--primary)` on wrapper |
-| Lockup white | On dark or gradient backgrounds | `color: #ffffff` on wrapper |
-| Icon only | Collapsed sidebar, mobile nav, ≤ 32px contexts | Same color rules as lockup |
-| Favicon | Browser tab, bookmarks, app icon | Icon on `#1F5B46` solid background, white paths |
-
-The gold-to-green gradient on the icon is the signature mark of Ali — use it on all premium marketing surfaces.
+| Signature lockup | Marketing heroes, collateral, splash, loading | Icon: `var(--logo-gradient)` · Wordmark: `var(--logo-solid)` |
+| Solid primary | App nav, headers, login (light bg) | `color: var(--primary)` on wrapper |
+| White | On gradient or coloured backgrounds | `color: #ffffff` on wrapper |
+| Icon only | Collapsed sidebar, mobile nav, ≤ 32px | Same colour rules as lockup |
+| Favicon | Browser tab, bookmarks, app icon | Icon on `#1F5B46` background, white paths |
 
 ---
 
