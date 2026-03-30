@@ -71,7 +71,7 @@ The primary Ali logo is a **composed lockup**: Icon with 3-stop metallic gold gr
 | Wordmark ("Ask Ali") | Flat solid gold | `var(--logo-solid)` |
 | Background | Black or very dark | `#0A0A0A` / `var(--foreground)` |
 
-Logo gradient stops (left → right): `--gold-700` `#6A4F10` → `--gold-200` `#EAD39F` (bright highlight, 50%) → `--gold-500` `#B8891C`
+Logo gradient stops (left → right): `--gold-700` `#70510A` → `--gold-200` `#F0D599` (bright highlight, 50%) → `--gold-500` `#C38D11`
 
 ```tsx
 // Signature lockup — dark background

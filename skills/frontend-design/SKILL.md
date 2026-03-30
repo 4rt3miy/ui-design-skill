@@ -306,7 +306,7 @@ The primary Ali logo form is a composed lockup: **Icon with a 3-stop metallic go
 
 | Token | Value | Role |
 |---|---|---|
-| `--logo-gradient` | `linear-gradient(to right, #6A4F10, #EAD39F, #B8891C)` | Icon fill — gold-700 → gold-200 → gold-500 |
+| `--logo-gradient` | `linear-gradient(to right, #70510A, #F0D599, #C38D11)` | Icon fill — gold-700 → gold-200 → gold-500 |
 | `--logo-solid` | `#DCB868` (`--gold-300`) | Wordmark fill — Figma-sourced anchor |
 
 ### Don'ts
