@@ -49,6 +49,20 @@ Always use semantic tokens. Never use raw hex or HSL values in components.
 | `ring-ring` | Focus rings — primary green |
 | `text-destructive` | Errors, critical states |
 
+### Logo
+
+| Variant | Context | Implementation |
+|---|---|---|
+| Lockup gradient | Marketing heroes, collateral, splash screens | CSS mask + `var(--brand-gradient)` |
+| Lockup solid | App nav, headers, login | `color: var(--primary)` on wrapper |
+| Lockup white | On dark or gradient backgrounds | `color: #ffffff` on wrapper |
+| Icon only | Collapsed sidebar, mobile nav, ≤ 32px contexts | Same color rules as lockup |
+| Favicon | Browser tab, bookmarks, app icon | Icon on `#009966` solid background, white paths |
+
+The teal-to-green gradient on the icon is the signature mark of Zeroh GRC — use it on all premium marketing surfaces.
+
+---
+
 ### Brand gradient
 
 The gradient is the brand's signature on marketing surfaces. Use it on hero sections, landing page CTAs, and announcement banners. Use the solid primary for all app UI.
