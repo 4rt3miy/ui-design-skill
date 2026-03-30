@@ -56,6 +56,20 @@ Always use semantic tokens. Never use raw hex values in components.
 | `ring-ring`                  | #4f39f6   | Focus rings — indigo                 |
 | `text-destructive`           | #e7000b   | Errors, critical states              |
 
+### Logo
+
+| Variant | Context | Implementation |
+|---|---|---|
+| Lockup gradient | Marketing heroes, collateral, splash screens | CSS mask + `var(--brand-gradient)` |
+| Lockup solid | App nav, headers, login | `color: var(--primary)` on wrapper |
+| Lockup white | On dark or gradient backgrounds | `color: #ffffff` on wrapper |
+| Icon only | Collapsed sidebar, mobile nav, ≤ 32px contexts | Same color rules as lockup |
+| Favicon | Browser tab, bookmarks, app icon | Icon on `#4f39f6` solid background, white paths |
+
+The slate-violet to deep-indigo gradient on the mark is the signature of Blade Labs Corporate — use it on all marketing surfaces.
+
+---
+
 ### Brand gradient
 
 The gradient is the brand's signature mark. Use it on marketing surfaces only — hero sections, landing page CTAs, announcement banners, section backgrounds. Never on app UI buttons or interactive elements within dashboards.

@@ -166,7 +166,7 @@ These three states are the most commonly neglected in frontend work, and the mos
 
 ## Brand Assets
 
-Every brand ships two SVG files. **Always use these — never create placeholder logos or inline text as a logo substitute.**
+Every brand ships two SVG files. **Always use these — never create placeholder logos, inline text substitutes, or recreate marks from scratch.**
 
 | Brand | Logo (wordmark) | Icon (mark) |
 |---|---|---|
@@ -174,38 +174,152 @@ Every brand ships two SVG files. **Always use these — never create placeholder
 | Zeroh GRC | `themes/zeroh/assets/Logo.svg` | `themes/zeroh/assets/Icon.svg` |
 | Blade Labs Corporate | `themes/corporate/assets/Logo.svg` | `themes/corporate/assets/Icon.svg` |
 
-**When to use each:**
-- `Logo.svg` — full wordmark. Use in nav bars, page headers, login screens, marketing surfaces.
-- `Icon.svg` — compact mark. Use for favicons, avatar slots, mobile nav, small contexts (≤32px).
+### Logo hierarchy
 
-**Critical: `currentColor` fill pattern**
+Three variants — use the right one for the context:
 
-All SVG paths use `fill="currentColor"`. This means the SVG color is controlled entirely by the CSS `color` property of its container — **no SVG edits needed when the color changes**.
+| Variant | What it is | When to use |
+|---|---|---|
+| **Lockup** | Icon + Wordmark composed side-by-side | Nav bars, page headers, login screens, marketing heroes, collateral — the primary form |
+| **Icon only** | The mark alone | Sidebar (collapsed state), mobile nav, favicon, avatar slots, any context ≤ 32px wide |
+| **Wordmark only** | Text alone | Wide-but-short spaces where the icon cannot fit legibly (rare) |
+
+The lockup is always the first choice when space allows. Only drop to Icon-only when the container genuinely cannot fit the wordmark.
+
+### Color variants
+
+Four variants — choose based on the background surface:
+
+| Variant | When to use | How |
+|---|---|---|
+| **Brand gradient** | Marketing heroes, landing CTAs, announcement banners, collateral | CSS mask + `var(--brand-gradient)` |
+| **Solid primary** | App UI on light backgrounds — nav, header, login, product pages | `color: var(--primary)` on container |
+| **White** | On dark surfaces or on gradient backgrounds | `color: #ffffff` on container |
+| **Foreground** | Monochrome contexts, print | `color: var(--foreground)` on container |
+
+**On gradient backgrounds, always use the white variant.** Never place the gradient logo on a gradient background.
+
+### Implementation: solid color (`currentColor`)
+
+All SVG paths use `fill="currentColor"`. Color is controlled entirely by the CSS `color` property of the wrapper — no SVG edits needed:
 
 ```jsx
-// React: inline SVG inherits color from parent
+// App nav — solid primary
 <div style={{ color: 'var(--primary)' }}>
-  {/* paste SVG here — it renders in --primary */}
+  {/* inline SVG — renders in brand primary */}
 </div>
 
-// To show on dark surface:
+// On dark or gradient surface — white
 <div style={{ color: '#ffffff' }}>
-  {/* same SVG — now renders white */}
+  {/* same SVG — renders white */}
 </div>
 
-// Tailwind:
-<div className="text-primary">
-  {/* SVG renders in brand primary */}
+// Tailwind
+<div className="text-primary">...</div>
+```
+
+### Implementation: gradient (CSS mask)
+
+Use CSS `mask` to apply the brand gradient through the SVG shape. The SVG is referenced as a URL (not inlined), so it must be accessible at a public path. In Next.js projects `setup.sh` copies assets to `public/brand/`.
+
+```jsx
+// Gradient lockup — marketing hero
+<div
+  style={{
+    background: 'var(--brand-gradient)',
+    WebkitMask: "url('/brand/Logo.svg') no-repeat center / contain",
+    mask: "url('/brand/Logo.svg') no-repeat center / contain",
+    width: '200px',
+    height: '42px',
+  }}
+/>
+
+// Gradient icon — standalone mark
+<div
+  style={{
+    background: 'var(--brand-gradient)',
+    WebkitMask: "url('/brand/Icon.svg') no-repeat center / contain",
+    mask: "url('/brand/Icon.svg') no-repeat center / contain",
+    width: '40px',
+    height: '40px',
+  }}
+/>
+```
+
+### Favicon
+
+Use **Icon.svg** — never Logo.svg (too wide for square format). Always use a **solid background** — never transparent. Browser chrome (tabs, bookmarks, OS dock) has unpredictable backgrounds; a transparent favicon becomes invisible on matching surfaces.
+
+```html
+<!-- favicon.svg: Icon on solid brand-primary background -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <rect width="36" height="36" rx="8" fill="[brand-primary]"/>
+  <!-- paste Icon.svg paths here with fill="white" -->
+</svg>
+
+<!-- In <head> -->
+<link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/brand/apple-touch-icon.png" />
+```
+
+Per-brand favicon colors:
+
+| Brand | Background | Icon color |
+|---|---|---|
+| Ali | `#1F5B46` (forest green) | `#ffffff` |
+| Zeroh GRC | `#009966` (deep green) | `#ffffff` |
+| Blade Labs Corporate | `#4f39f6` (indigo) | `#ffffff` |
+
+### Minimum sizes
+
+| Variant | Minimum | Typical |
+|---|---|---|
+| Lockup (icon + wordmark) | 120px wide | 160–200px |
+| Icon | 16px | 24px nav · 32px UI |
+| Favicon | 16px | 32px |
+
+### Ali — signature lockup (special case)
+
+Ali has **two separate colour systems**: gold for the logo, forest green for the app UI. They never mix.
+
+The primary Ali logo form is a composed lockup: **Icon with a 3-stop metallic gold gradient** + **Wordmark in flat solid gold**, always on a dark/black background. Use `--logo-gradient` and `--logo-solid` — never `--brand-gradient` (which is sage→forest green and belongs to marketing UI only).
+
+```jsx
+// Ali signature lockup — dark background
+<div style={{ display: 'flex', alignItems: 'center', gap: '20px', background: '#0A0A0A' }}>
+  {/* Icon — 3-stop gold gradient: gold-700 → gold-200 → gold-500 */}
+  <div style={{
+    background: 'var(--logo-gradient)',
+    WebkitMask: "url('/brand/Icon.svg') no-repeat center / contain",
+    mask: "url('/brand/Icon.svg') no-repeat center / contain",
+    width: '52px', height: '52px',
+  }} />
+  {/* Wordmark — flat solid gold (gold-300) */}
+  <div style={{
+    background: 'var(--logo-solid)',
+    WebkitMask: "url('/brand/Logo.svg') no-repeat center / contain",
+    mask: "url('/brand/Logo.svg') no-repeat center / contain",
+    width: '200px', height: '52px',
+  }} />
 </div>
 ```
 
-**In Next.js projects:** After `setup.sh` runs, assets are copied to `public/brand/`. Reference them as:
-- `/brand/Logo.svg` — for `<img src>` or CSS `url()`
-- Import and inline for `currentColor` control (recommended)
+| Token | Value | Role |
+|---|---|---|
+| `--logo-gradient` | `linear-gradient(to right, #70510A, #F0D599, #C38D11)` | Icon fill — gold-700 → gold-200 → gold-500 |
+| `--logo-solid` | `#DCB868` (`--gold-300`) | Wordmark fill — Figma-sourced anchor |
 
-**Never** hardcode a hex color directly on the SVG element. Always control color through CSS `color` on the wrapper.
+### Don'ts
 
-**Minimum sizes:** Logo ≥ 80px wide · Icon ≥ 16px · Icon typical UI size 32px
+- Never recreate, redraw, or substitute the logo with inline text
+- Never add drop shadows, glows, outlines, or other effects to the SVG
+- Never rotate or skew the logo
+- Never stretch or distort proportions — always preserve the SVG aspect ratio
+- Never place the gradient logo variant on a gradient background — use white on gradients
+- Never use a transparent background for favicons
+- Never use `Logo.svg` as a favicon — it is a wide wordmark, not a square mark
+- Never hardcode a color directly on the SVG element — always control via CSS `color` on the wrapper
+- **Ali only**: Never use `var(--brand-gradient)` on the Ali logo — the logo uses `var(--logo-gradient)` gold, not the green UI gradient
 
 ---
 
@@ -220,8 +334,8 @@ Load these when operating in Path 2 (theme specified, no project files present).
 | `references/ali/globals.css` | Ali token values |
 | `references/zeroh/DESIGN.md` | Zeroh GRC design system — typography, color, components |
 | `references/zeroh/globals.css` | Zeroh GRC token values |
-| `references/grc/DESIGN.md` | Blade Labs Corporate design system — typography, color, components |
-| `references/grc/globals.css` | Blade Labs Corporate token values |
+| `references/corporate/DESIGN.md` | Blade Labs Corporate design system — typography, color, components |
+| `references/corporate/globals.css` | Blade Labs Corporate token values |
 | `themes/ali/assets/` | Ali brand SVGs (Logo.svg, Icon.svg) |
 | `themes/zeroh/assets/` | Zeroh GRC brand SVGs (Logo.svg, Icon.svg) |
 | `themes/corporate/assets/` | Blade Labs Corporate brand SVGs (Logo.svg, Icon.svg) |

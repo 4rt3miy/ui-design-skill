@@ -21,17 +21,17 @@
   --brand-900: #081915;
   --brand-950: #040D0A;
 
-  --gold-50:  #FBF6E8;
-  --gold-100: #F5EAD0;
-  --gold-200: #EAD39F;
-  --gold-300: #DDBA6C;
-  --gold-400: #CFA13F;
-  --gold-500: #B8891C;
-  --gold-600: #8F6B15;
-  --gold-700: #6A4F10;
-  --gold-800: #47340A;
-  --gold-900: #261C05;
-  --gold-950: #140E03;
+  --gold-50:  #FCF7E7;
+  --gold-100: #F8EBCD;
+  --gold-200: #F0D599;
+  --gold-300: #DCB868;   /* Figma source — logo solid gold anchor */
+  --gold-400: #DBA533;
+  --gold-500: #C38D11;
+  --gold-600: #976E0D;
+  --gold-700: #70510A;
+  --gold-800: #4B3606;
+  --gold-900: #281D03;
+  --gold-950: #150E02;
 
   --sand-50:  #F7F6F3;
   --sand-100: #EFEDE8;
@@ -46,10 +46,18 @@
   --sand-950: #14110D;
 
 
-  /* --- Brand gradient --- */
+  /* --- Brand gradient (marketing UI — sage → forest green) --- */
   --brand-gradient-start: #6FA28F;
   --brand-gradient-end:   #1F5B46;
   --brand-gradient: linear-gradient(to right, #6FA28F, #1F5B46);
+
+  /* --- Logo gradient (signature mark — 3-stop metallic gold) --- */
+  /* Use on the Icon only; wordmark uses --logo-solid */
+  --logo-gradient-start: var(--gold-700); /* #6A4F10 — dark gold */
+  --logo-gradient-mid:   var(--gold-200); /* #EAD39F — bright highlight, 1 step above logo solid */
+  --logo-gradient-end:   var(--gold-500); /* #B8891C — warm gold */
+  --logo-gradient: linear-gradient(to right, #70510A 0%, #F0D599 50%, #C38D11 100%);
+  --logo-solid:    var(--gold-300); /* #DCB868 — Figma source, wordmark fill */
   /* --- L2 Semantics --- */
   --background:         var(--sand-50);
   --foreground:         var(--sand-900);
