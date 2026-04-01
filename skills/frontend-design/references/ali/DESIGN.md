@@ -73,8 +73,17 @@ The primary Ali logo is a **composed lockup**: Icon with 3-stop metallic gold gr
 
 Logo gradient stops (left → right): `--gold-700` `#70510A` → `--gold-200` `#F0D599` (bright highlight, 50%) → `--gold-500` `#C38D11`
 
+**When generating standalone HTML or collateral** (no project asset files available), read the SVG files directly from the plugin and embed them inline. The source files are at:
+
+- Icon: `themes/ali/assets/Icon.svg` — use with CSS mask for gradient coloring
+- Wordmark: `themes/ali/assets/Logo.svg` — embed inline, set `fill` to `#DCB868`
+
+Read these files at generation time. Do not hardcode paths like `/brand/Icon.svg` — they will not resolve in a fresh project.
+
+#### Signature lockup — implementation
+
 ```tsx
-// Signature lockup — dark background
+// Signature lockup — dark background (React, assets available)
 <div style={{ display: 'flex', alignItems: 'center', gap: '20px', background: '#0A0A0A', padding: '32px 40px' }}>
   {/* Icon — 3-stop gold gradient via CSS mask */}
   <div style={{
@@ -83,10 +92,8 @@ Logo gradient stops (left → right): `--gold-700` `#70510A` → `--gold-200` `#
     mask: "url('/brand/Icon.svg') no-repeat center / contain",
     width: '52px', height: '52px', flexShrink: 0,
   }} />
-  {/* Wordmark — flat solid gold */}
-  <div style={{ color: 'var(--logo-solid)' }}>
-    {/* inline Logo.svg */}
-  </div>
+  {/* Wordmark — inline SVG, fill set to --logo-solid */}
+  {/* Read themes/ali/assets/Logo.svg and embed here with fill="#DCB868" */}
 </div>
 ```
 
