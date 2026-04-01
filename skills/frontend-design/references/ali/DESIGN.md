@@ -73,6 +73,20 @@ The primary Ali logo is a **composed lockup**: Icon with 3-stop metallic gold gr
 
 Logo gradient stops (left → right): `--gold-700` `#70510A` → `--gold-200` `#F0D599` (bright highlight, 50%) → `--gold-500` `#C38D11`
 
+**Critical — gradient must span the whole icon, not each path separately.**
+Always use `gradientUnits="userSpaceOnUse"` with coordinates matching the SVG viewBox dimensions (`x1="0" y1="0" x2="36" y2="0"` for the 36×36 icon). The default `objectBoundingBox` maps the gradient to each path's individual bounding box, producing a broken multi-gradient effect. Example:
+
+```svg
+<defs>
+  <linearGradient id="iconGold" x1="0" y1="0" x2="36" y2="0" gradientUnits="userSpaceOnUse">
+    <stop offset="0%"   stop-color="#70510A"/>
+    <stop offset="50%"  stop-color="#F0D599"/>
+    <stop offset="100%" stop-color="#C38D11"/>
+  </linearGradient>
+</defs>
+<!-- all paths use fill="url(#iconGold)" — gradient sweeps across the full shape as one -->
+```
+
 **When generating standalone HTML or collateral** (no project asset files available), read the SVG files directly from the plugin and embed them inline. The source files are at:
 
 - Icon: `themes/ali/assets/Icon.svg` — use with CSS mask for gradient coloring
