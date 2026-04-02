@@ -1,6 +1,6 @@
 ---
-name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build, create, or design any frontend UI — including web components, pages, dashboards, apps, landing pages, React components, HTML/CSS layouts, admin panels, forms, or any visual interface. Also use when the user asks to generate marketing or PR collateral — social cards, announcement banners, LinkedIn images, presentation slides, or any static branded visual asset. Also use when the user says "use Ali", "use Zeroh GRC", "use Blade Labs Corporate", "use GRC", "switch design system", or "apply the design system". Generates creative, polished code and UI that avoids generic AI aesthetics.
+name: blade-design
+description: Blade Labs branded UI and collateral generator.
 license: Complete terms in LICENSE.txt
 ---
 
