@@ -113,7 +113,7 @@ claude --plugin-dir "C:\Users\YourName\skills\ui-design-skill"
 ```
 what skills do you have loaded?
 ```
-You should see `ui-design-skill:frontend-design` in the list.
+You should see `ui-design-skill:blade-design` in the list.
 
 **To avoid typing the flag every time**, add this to your shell config (`~/.zshrc` or `~/.bashrc`):
 ```bash
