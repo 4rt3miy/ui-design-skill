@@ -21,6 +21,7 @@ If no `CLAUDE.md` exists, infer both the theme and the stack from the request, t
 **Brand inference:**
 - Reading-heavy, AI assistants, document tools, knowledge bases, Shariah → **Ali**
 - Health, wellness, consumer products, onboarding → **Zeroh GRC**
+- Cloud privacy, document disclosure, compliance workflows, audit trails, access logs, deterministic tools → **Zeroh Disclosure**
 - Dashboards, internal tools, data products, admin panels, compliance, GRC → **Blade Labs Corporate**
 
 If no brand signal is present and no `CLAUDE.md` exists, ask the user which brand to use before building.
@@ -109,6 +110,7 @@ Every brand ships two SVG files. **Always use these — never create placeholder
 |---|---|---|
 | Ali | `themes/ali/assets/Logo.svg` | `themes/ali/assets/Icon.svg` |
 | Zeroh GRC | `themes/zeroh/assets/Logo.svg` | `themes/zeroh/assets/Icon.svg` |
+| Zeroh Disclosure | `themes/disclosure/assets/Logo.svg` | `themes/disclosure/assets/Icon.svg` |
 | Blade Labs Corporate | `themes/corporate/assets/Logo.svg` | `themes/corporate/assets/Icon.svg` |
 
 ### Logo hierarchy
@@ -272,8 +274,11 @@ Load these when operating in Path 2 (theme specified, no project files present).
 | `references/ali/globals.css` | Ali token values |
 | `references/zeroh/DESIGN.md` | Zeroh GRC design system — typography, color, components |
 | `references/zeroh/globals.css` | Zeroh GRC token values |
+| `references/disclosure/DESIGN.md` | Zeroh Disclosure design system — IBM Plex Mono headings, navy/teal palette |
+| `references/disclosure/globals.css` | Zeroh Disclosure token values |
 | `references/corporate/DESIGN.md` | Blade Labs Corporate design system — typography, color, components |
 | `references/corporate/globals.css` | Blade Labs Corporate token values |
 | `themes/ali/assets/` | Ali brand SVGs (Logo.svg, Icon.svg) |
 | `themes/zeroh/assets/` | Zeroh GRC brand SVGs (Logo.svg, Icon.svg) |
+| `themes/disclosure/assets/` | Zeroh Disclosure brand SVGs (Logo.svg, Icon.svg) |
 | `themes/corporate/assets/` | Blade Labs Corporate brand SVGs (Logo.svg, Icon.svg) |
